@@ -21,7 +21,16 @@
                     <p class="app-error" v-if="input.key == 'Email' && error != null" >{{error}}</p>
 
                 </v-col>
-                <v-col cols="12" >
+                <v-col cols="12" md="6">
+                    <v-file-input
+                      truncate-length="15"
+                      lable="الصورة"
+                      v-model="img"
+                      outlined
+                    ></v-file-input>
+                </v-col>
+
+                <v-col cols="12"  md="6">
                     <v-textarea
                     :label="breif.label"
                     @keyup.enter="valid ? update : ''"
