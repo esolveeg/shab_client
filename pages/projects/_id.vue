@@ -72,7 +72,15 @@
             <v-col cols="12" md="4">
               <div class="meta">
                   <h2>معلومات الاتصال</h2>
-                  <div class="email">
+                  <div class="email" v-if="project.Website">
+                      <v-icon>mdi-browser</v-icon>
+                      <div class="meta__info" >
+                          <p>الموقغ الالكتروني</p>
+                          <p><a :href="project.Website">{{project.Website}}</a></p>
+                      </div>
+                  </div>
+                  
+                  <div class="email"  v-if="project.Email  &&  project.Email  != 'null'">
                       <v-icon>mdi-message</v-icon>
                       <div class="meta__info">
                           <p>البريد الالكتروني</p>

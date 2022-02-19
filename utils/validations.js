@@ -59,12 +59,6 @@ export const createProjectValidation = {
     Title :[
       value => required(value) ,
     ],
-    Img :[
-      value => required(value) ,
-    ],
-    Logo :[
-      value => required(value) ,
-    ],
     Fund :[
       value => required(value) ,
     ],
@@ -75,9 +69,6 @@ export const createProjectValidation = {
         value => required(value) ,
     ],
     Phone :[
-        value => required(value) ,
-    ],
-    File :[
         value => required(value) ,
     ],
     Email :[

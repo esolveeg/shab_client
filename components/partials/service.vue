@@ -18,7 +18,8 @@ export default {
     props:['service'],
     methods:{
         send(){
-            this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
+            // this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
+            this.$store.commit('ui/serviceModal' , true)
         }
     }
 }

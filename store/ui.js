@@ -5,6 +5,7 @@ export const state = () => ({
     appLoading:true,
     projectModal:false,
     articlesModal:false,
+    serviceModal:false,
     snackBarText : null,
     profileTab:0,
     home:null
@@ -13,6 +14,9 @@ export const state = () => ({
 export const mutations = {
     loginModal(state, payload) {
         state.loginModal = payload;
+    },
+    serviceModal(state,payload){
+        state.serviceModal = payload
     },
     profileTab(state, payload) {
         state.profileTab = payload;
@@ -48,6 +52,9 @@ export const mutations = {
 export const getters = {
     loginModal: state => {
         return state.loginModal
+    },
+    serviceModal: state => {
+        return state.serviceModal
     },
     profileTab: state => {
         return state.profileTab

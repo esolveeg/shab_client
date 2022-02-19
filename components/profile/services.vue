@@ -17,6 +17,8 @@
             <partials-service :service="service"/>
           </v-col>
         </v-row>
+        <modals-service/> 
+
      </div>
     
     </div>

@@ -7,6 +7,12 @@
              <v-tabs :vertical="vertical" v-model="tab">
                  <div class="user__data">
                     <partials-member-avatar  :img="user.Img" @click.prevent="toggle()"/>
+                    <v-file-input
+                    class="hidden-file-input"
+                      truncate-length="15"
+                      v-model="img"
+                      outlined
+                    ></v-file-input>
                     <h2>{{user.Name_ar}}</h2>
                     <h3>لديك {{user.Points}} نقطة</h3>
                  </div>
@@ -54,6 +60,7 @@ export default {
     data(){
         return{
             AccountNav,
+            img:null,
             vertical:true,
             // tab:0,
         }
@@ -80,6 +87,25 @@ export default {
         },  
         deep:true
       },
+    },
+     watch: {
+    // form:{
+    //     handler: function(val)  {
+    //       this.validate()
+    //     },
+    //     deep:true
+    // },
+    img:{
+        handler: function(val)  {
+            let formData = new FormData();
+            formData.append('file', val);
+            Upload(formData)
+            .then(d => {
+                // this.$store.commit('ui/snackBar' , 'تم تحديث الصورة بنجاح')
+                // this.$store.commit('user/user' , d)
+            })
+          console.log(val)
+        },
     },
     methods:{
      

@@ -31,12 +31,12 @@
       <v-row>
         <v-col cols="12" md="6">
           <p>تاريخ البداية</p>
-          <v-text-field hide-details  append-icon="mdi-calendar-month" value="02/05/2021" solo disabled></v-text-field >
+          <v-text-field hide-details  append-icon="mdi-calendar-month" value="01/01/2022" solo disabled></v-text-field >
 
         </v-col>
         <v-col cols="12" md="6">
           <p>تاريخ الانتهاء</p>
-          <v-text-field hide-details  append-icon="mdi-calendar-month" value="02/05/2022" solo disabled></v-text-field >
+          <v-text-field hide-details  append-icon="mdi-calendar-month" value="01/01/2023" solo disabled></v-text-field >
         </v-col>
       </v-row>
        <v-row>

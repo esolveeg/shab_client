@@ -33,7 +33,10 @@ export default {
          Location : null,
          Phone : null,
          File : null,
-         Email : null
+         Email : null,
+         Website:null,
+         Instagram:null,
+         Twitter:null,
       },
        required,
     }),
@@ -73,6 +76,9 @@ export default {
                 this.form.Location = res.Location
                 this.form.Phone = res.Phone
                 this.form.Email = res.Email
+                this.form.Website = res.Website
+                this.form.Instagram = res.Instagram
+                this.form.Twitter = res.Twitter
             })
         },
 
@@ -104,6 +110,9 @@ export default {
             formData.append('Phone' , form.Phone)
             formData.append('File' , form.File)
             formData.append('Email' , form.Email)
+            formData.append('Website' , form.Website)
+            formData.append('Instagram' , form.Instagram)
+            formData.append('Twitter' , form.Twitter)
 
 
             const method = this.editId == null ? 'post' : 'put'

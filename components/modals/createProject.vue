@@ -3,6 +3,7 @@
       <v-dialog
       v-model="modal"
       max-width="80%"
+      scrollable
     >
       <v-card class="radius">
         <v-card-text>
@@ -95,6 +96,30 @@
                     :rules="createProjectValidation.Location"
                     v-model="form.Location"
                     :error-messages="errors.Location"
+                    outlined
+                    ></v-text-field>
+                </v-col>
+                 <v-col cols="12" md="6">
+                    <v-text-field
+                    label="الموقع الالكتروني"
+                    ref="website"
+                    v-model="form.Website"
+                    outlined
+                    ></v-text-field>
+                </v-col>
+                 <v-col cols="12" md="6">
+                    <v-text-field
+                    label="رابط تويتر"
+                    ref="twitter"
+                    v-model="form.Twitter"
+                    outlined
+                    ></v-text-field>
+                </v-col>
+                 <v-col cols="12" md="6">
+                    <v-text-field
+                    label="رابط انستجرام"
+                    ref="instagram"
+                    v-model="form.Instagram"
                     outlined
                     ></v-text-field>
                 </v-col>
