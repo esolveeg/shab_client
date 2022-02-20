@@ -59,6 +59,10 @@ export default {
     baseURL: 'http://localhost:8585/api/'
   },
 
+  server:{
+    port : 4000
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
