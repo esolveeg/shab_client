@@ -1,13 +1,9 @@
 .consultunt {
-  -webkit-transition: -webkit-transform .3s ease;
-  transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
-  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
 .consultunt:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .consultunt .img {
@@ -24,11 +20,16 @@
   border-radius: 15px;
 }
 
-.consultunt .skills .bar {
-  content: "";
-  height: 2px;
-  background-color: var(--primary);
-  width: 100%;
+.consultunt .skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.consultunt .skills .chip {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  justify-content: center;
 }
 
 .consultunt p {
@@ -59,4 +60,3 @@
 .consultunt .chip:nth-child(3) {
   background-color: #00373a;
 }
-/*# sourceMappingURL=consultunt.css.map */

@@ -16,12 +16,14 @@
         }
     }
     & .skills{
-        & .bar
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        & .chip
             {
-                content: "";
-                height: 2px;
-                background-color: var(--primary);
-               width: 100%;
+                text-align:center;
+                font-size:12px;
+                font-weight:bold;
+                justify-content: center;
             }
         
     }

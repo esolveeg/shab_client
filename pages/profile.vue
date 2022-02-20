@@ -32,7 +32,54 @@
         <profile-membership/>
       </v-tab-item>
       <v-tab-item>
-        <profile-edit/>
+       <div class="user__edit">
+        
+        <v-form ref="form" v-model="valid">
+                <v-row>
+                                     <!-- {{user}} -->
+                
+                <v-col cols="12" md="6" v-for="(input , index) in inputs" :key="index">
+                    <v-text-field
+                    :label="input.label"
+                    @keyup.enter="$refs[inputs[index+1].key].focus()"
+                    :ref="input.key"
+                    v-model="form[input.key]"
+                    :type="input.key == 'Password' ? 'password':'text' "
+                    :disabled="input.disabled"
+                    :rules="typeof updateUserValidation[input.key] != 'undefined' ? updateUserValidation[input.key] : []"
+                    :hint="input.hint ? input.hint : ''"
+                    :error-messages="errors[input.key]"
+                    outlined
+                    ></v-text-field>
+                    <p class="app-error" v-if="input.key == 'Email' && error != null" >{{error}}</p>
+
+                </v-col>
+                <v-col cols="12" md="6">
+                    <v-file-input
+                      truncate-length="15"
+                      lable="الصورة"
+                      v-model="img"
+                      outlined
+                    ></v-file-input>
+                </v-col>
+
+                <v-col cols="12"  md="6">
+                    <v-textarea
+                    :label="breif.label"
+                    @keyup.enter="valid ? update : ''"
+                    v-model="form[breif.key]"
+                    rows="3"
+                    :error-messages="errors[breif.key]"
+                    outlined
+                    ></v-textarea>
+                </v-col>
+                
+                <v-col cols="12" class="text-center">
+                    <v-btn  :loading="loading" @click.prevent="update" class="app-btn">تحديث</v-btn>
+                </v-col>
+                </v-row>
+            </v-form>
+    </div>
       </v-tab-item>
       <v-tab-item>
         <profile-sms/>
@@ -54,14 +101,74 @@
 
 <script>
 import AccountNav from '@/utils/AccountNav'
-import {logout , addParamsToLocation} from '@/utils/Helpers'
+import {logout , addParamsToLocation , UpdateUser , Upload , required} from '@/utils/Helpers'
 import {mapGetters} from 'vuex'
+import {updateUserValidation} from '@/utils/validations'
+
 export default {
     data(){
         return{
             AccountNav,
-            img:null,
             vertical:true,
+             img:null,
+             error:null,
+            loading:false,
+            valid:true,
+            updateUserValidation,
+            inputs:[
+                {
+                label:"الاسم باللغة العربية",
+                disabled:true,
+                key:"Name_ar"
+                },
+                {
+                label:"الاسم باللغة الانجليزية",
+                key:"Name",
+                disabled:true
+                },
+                {
+                    label:"البريد الالكتروني",
+                    key:"Email"
+                },
+                {
+                    label:"كلمة السر",
+                    key:"Password",
+                    hint:"اترك هذا الحقل خاليا ان كنت لا تريد تغيير كلمة السر"
+                },
+                
+                 
+                 {
+                     label:"الهاتف",
+                    key:"Phone"
+                },                
+                {
+                    label:"العضوية",
+                    key:"Role",
+                    disabled:true
+
+                },
+                
+            ],
+            breif: {
+                label:"النبذة التعرفية",
+                key:"Breif"
+                },
+            form:{
+                Name : null,
+                Name_ar : null,
+                Email : null,
+                Img : null,
+                Password : null,
+                Phone : null,
+                Role :null,
+                Breif : null,
+                Website : null,
+                Twitter : null,
+                Instagram : null
+            },
+            errors:{},
+            form:{},
+            required,
             // tab:0,
         }
     },
@@ -79,31 +186,26 @@ export default {
         userLoading:'user/loading'
       })
     },
-    watch:{
-      tab:{
+     watch: {
+    tab:{
         handler:function(){
           addParamsToLocation({tab:this.tab } ,this.$route.path)
           
         },  
         deep:true
       },
-    },
-     watch: {
-    // form:{
-    //     handler: function(val)  {
-    //       this.validate()
-    //     },
-    //     deep:true
-    // },
     img:{
         handler: function(val)  {
-            let formData = new FormData();
-            formData.append('file', val);
-            Upload(formData)
-            .then(d => {
-                // this.$store.commit('ui/snackBar' , 'تم تحديث الصورة بنجاح')
-                // this.$store.commit('user/user' , d)
-            })
+            // let formData = new FormData();
+            // formData.append('file', val);
+            // Upload(formData)
+            // .then(d => {
+            //   this.form.Img = d
+            //   this.update()
+            //     // this.$store.commit('ui/snackBar' , 'تم تحديث الصورة بنجاح')
+            //     // this.$store.commit('user/user' , d)
+            // })
+            
           console.log(val)
         },
     },
@@ -114,6 +216,31 @@ export default {
             this.$router.push({name: 'index'})
         }
     },
+    update() {
+          this.$refs.form.validate()
+          if(this.valid){
+             this.loading = true
+             if(this.img == null) this.form.Img = ""
+                UpdateUser(this.form).then(d => {
+                    this.error = null
+                    this.loading = false
+                        this.error =null
+                    this.$store.commit('ui/snackBar' , 'تم تحديث البيانات بنجاح')
+                    this.$store.commit('user/user' , d)
+                    
+                })
+                .catch(e => {
+                    this.error = "البريد الالكتروني محجوز"
+                    this.loading = false
+                    window.scrollTo({
+                        top: 300,
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                
+                })   
+          }
+       },
     mounted(){
        if(this.user == null){
         this.$router.push('/')
@@ -123,10 +250,16 @@ export default {
       console.log(this.user)
      
       if(this.$route.query.tab) this.tab = parseInt(this.$route.query.tab)
+        this.form = {...this.user}
+        
+        Object.keys(this.user).forEach(key => {
+            this.errors[key] = []
+        })
     },
     mounted(){
       if(window.innerWidth < 1000) this.vertical = false
     }
+}
 }
 </script>
 
