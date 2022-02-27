@@ -101,7 +101,8 @@
 
 <script>
 import AccountNav from '@/utils/AccountNav'
-import {logout , addParamsToLocation , UpdateUser , Upload , required} from '@/utils/Helpers'
+import {logout , addParamsToLocation   , required} from '@/utils/Helpers'
+import {UpdateUser , Upload} from '@/repositoreis/user'
 import {mapGetters} from 'vuex'
 import {updateUserValidation} from '@/utils/validations'
 
@@ -196,16 +197,15 @@ export default {
       },
     img:{
         handler: function(val)  {
-            // let formData = new FormData();
-            // formData.append('file', val);
-            // Upload(formData)
-            // .then(d => {
-            //   this.form.Img = d
-            //   this.update()
-            //     // this.$store.commit('ui/snackBar' , 'تم تحديث الصورة بنجاح')
-            //     // this.$store.commit('user/user' , d)
-            // })
-            
+             let formData = new FormData();
+            formData.append('file', val);
+            console.log(formData)
+            Upload(formData)
+            .then(d => {
+                this.form.Img = d
+                this.update()
+            })
+
           console.log(val)
         },
     },
@@ -214,8 +214,7 @@ export default {
         logout(){
             logout(this.$store)
             this.$router.push({name: 'index'})
-        }
-    },
+        },
     update() {
           this.$refs.form.validate()
           if(this.valid){
@@ -241,6 +240,7 @@ export default {
                 })   
           }
        },
+    },
     mounted(){
        if(this.user == null){
         this.$router.push('/')
