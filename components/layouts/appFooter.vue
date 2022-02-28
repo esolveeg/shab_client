@@ -1,9 +1,15 @@
 <template>
-    <footer>
-      <v-container>
-   <v-row>
-            <v-col cols="6" md="3">
-                <ul>
+  <footer>
+    <v-container>
+      <v-row>
+        <v-col cols="6" md="3">
+          <h3 class="footer-title">نبذة عن الشاب الريادي</h3>
+          
+          <p class="footer-about">
+            منصة مجتمع الشاب الريادي إحدى برامج ريادة الأعمال في شركة “بزنس برو
+            Business Pro l” للاستشارات
+          </p>
+          <!-- <ul>
                     <li><nuxt-link to="/">
                         الرئيسية
                     </nuxt-link></li>
@@ -20,61 +26,64 @@
                     
                     
                     
-                </ul>
-            </v-col>
-            <v-col cols="6" md="3">
-                <ul>
-                     <li><nuxt-link to="/memberships">
-                        العضويات
-                    </nuxt-link></li>
-                    <li><nuxt-link to="/about">
-                        من نحن
-                    </nuxt-link></li>
-                     <li  v-if="user == null"><a
-                        @click.prevent="$store.commit('ui/loginModal', true)">
-                        تسجيل الدخول
-                    </a></li>
-                     <li  v-if="user == null"><nuxt-link to="/consultunts">
-                       المستشارن
-                    </nuxt-link></li>
-                    <li v-else><nuxt-link to="/profile" >
-                     {{user.Name_ar}}
-                    </nuxt-link></li>
-                    
-                </ul>
-            </v-col>
-            <v-col cols="6" md="3">
-                <ul>
-                   
-                     <li><nuxt-link to="/projects">
-                        المشاريع
-                    </nuxt-link></li>
-                    <li><nuxt-link to="/members">
-                      الاعضاء
-                    </nuxt-link></li>
-                     <li><nuxt-link to="/videos">
-                        الفيديوهات
-                    </nuxt-link></li>
-                    
-                </ul>
-            </v-col>
-            
-             <v-col cols="6" md="3" class="follow">
-                 <h2>تابعنا هنا</h2>
-                <ul >
-                   <a href="https://www.youtube.com/channel/UCTymSdrvBrQy4RxFap1d_ow" target="_blank"> <v-icon>mdi-youtube</v-icon></a>
-                   <a href="https://twitter.com/AlshabAlriyadi" target="_blank"> <v-icon>mdi-twitter</v-icon></a>
-                   <a href="https://www.instagram.com/alshabalriyadi/" target="_blank"> <v-icon>mdi-instagram</v-icon></a>
-                </ul>
-            </v-col>
-        </v-row>
-        <v-row justify="center" class="copyrights">
-            <p>© 2021 جميع الحقوق محفوظة الي BUSINESS PRO </p>
-            <img src="@/assets/images/powerd.png">
-        </v-row>
-      </v-container>
-     
-    </footer>
+                </ul> -->
+        </v-col>
+        <v-col cols="6" md="3">
+          <h3 class="footer-title">اهم الروابط</h3>
+          <ul>
+            <li><nuxt-link to="/memberships"> العضويات </nuxt-link></li>
+            <li><nuxt-link to="/about"> من نحن </nuxt-link></li>
+            <li v-if="user == null">
+              <a @click.prevent="$store.commit('ui/loginModal', true)">
+                تسجيل الدخول
+              </a>
+            </li>
+            <li v-if="user == null">
+              <nuxt-link to="/consultunts"> المستشارن </nuxt-link>
+            </li>
+            <li v-else>
+              <nuxt-link to="/profile">
+                {{ user.Name_ar }}
+              </nuxt-link>
+            </li>
+          </ul>
+        </v-col>
+        <v-col cols="6" md="3">
+          <h3 class="footer-title">روابط الاعضاء</h3>
+          <ul>
+            <li><nuxt-link to="/projects"> المشاريع </nuxt-link></li>
+            <li><nuxt-link to="/members"> الاعضاء </nuxt-link></li>
+            <li><nuxt-link to="/videos"> الفيديوهات </nuxt-link></li>
+          </ul>
+        </v-col>
+
+        <v-col cols="6" md="3" class="follow">
+          <h3 class="footer-title">تابعنا هنا</h3>
+          <ul >
+            <a
+              href="https://www.youtube.com/channel/UCTymSdrvBrQy4RxFap1d_ow"
+              target="_blank"
+            >
+              <v-icon>mdi-youtube</v-icon></a
+            >
+            <a href="https://twitter.com/AlshabAlriyadi" target="_blank">
+              <v-icon>mdi-twitter</v-icon></a
+            >
+            <a href="https://www.instagram.com/alshabalriyadi/" target="_blank">
+              <v-icon>mdi-instagram</v-icon></a
+            >
+          </ul>
+        </v-col>
+      </v-row>
+      <v-row justify="center" class="copyrights">
+        <p>
+          © الشاب الريادي علامة تجارية مسجلة وجميع حقوق المنصة محفظة لـ BUSINESS
+          PRO
+        </p>
+        <img src="@/assets/images/powerd.png" />
+      </v-row>
+    </v-container>
+  </footer>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -108,8 +117,6 @@ export default {
       this.$store.commit('ui/snackBar', 'تم تسجيل الخروج بنجاح')
       if (this.$route.name == 'profile') this.$router.push({ name: 'index' })
     },
-  
   },
-  
 }
 </script>

@@ -121,9 +121,9 @@ export const CreateArticle = (form) => {
 }
 
 
-export const Videos = () => {
+export const Videos = (category) => {
     return new Promise((resolve, reject) => {
-        Http.get('videos')
+        Http.get(`videos?category=${category}`)
         .then((d) => {
             d.data == null ? resolve([]) : resolve(d.data)
         }).catch(e => {

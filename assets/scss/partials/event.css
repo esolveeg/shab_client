@@ -44,7 +44,7 @@
   height: 200px;
 }
 
-.event .top .cat {
+.event .top .cat, .event .top .status {
   position: absolute;
   background-color: var(--primary);
   color: #fff;
@@ -52,6 +52,11 @@
   border-radius: 5px 0px 0 5px;
   padding: 5px 10px;
   right: 0;
+}
+
+.event .top .status {
+  background-color: var(--danger);
+  top: 40%;
 }
 
 .event .top .join {

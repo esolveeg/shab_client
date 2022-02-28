@@ -1,0 +1,71 @@
+.vip {
+  background-size: cover;
+  height: 300px;
+  background-position: center;
+  background-color: var(--primary);
+  border-radius: 15px;
+  position: relative;
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  text-align: center;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.vip:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+.vip:hover::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), color-stop(50%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.1)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.vip:hover p {
+  height: auto;
+}
+
+.vip::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
+
+.vip p {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+.vip h2, .vip p {
+  z-index: 3;
+  padding: 0 20px;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+/*# sourceMappingURL=member-vip.css.map */

@@ -1,9 +1,13 @@
 .consultunt {
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
 .consultunt:hover {
-  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .consultunt .img {
@@ -21,15 +25,19 @@
 }
 
 .consultunt .skills {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 .consultunt .skills .chip {
   text-align: center;
   font-size: 12px;
   font-weight: bold;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .consultunt p {
@@ -60,3 +68,4 @@
 .consultunt .chip:nth-child(3) {
   background-color: #00373a;
 }
+/*# sourceMappingURL=consultunt.css.map */

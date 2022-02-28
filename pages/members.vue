@@ -46,7 +46,7 @@ export default {
             return this.startIndexSlice + this.pageCount
         },
         paginationLength(){
-            return Math.floor(this.users.length / this.pageCount)
+            return Math.ceil(this.users.length / this.pageCount)
         },
         ...mapGetters({
             users : 'user/users'

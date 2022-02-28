@@ -1,16 +1,33 @@
 
 footer{
-    background-color: var(--primary);
+    background-color: #1B1D1F;
     text-align: center;
     padding: 50px 0;
+    & .footer-logo{
+        width: 50px;
+    }
+    & .footer-about{
+        text-align: right;
+        margin-top: 20px;
+        color: #ffffff99 !important;
+
+    }
+    & .footer-title{
+        color: #fff !important;
+        text-align:right;
+        font-size:18px;
+        font-weight:bold;
+    }
     & ul{
-        text-align: center;
+        text-align: right;
+        margin-top: 20px;
+        padding-right: 0;
         & li {
             list-style: none;
-            color: #fff;
+            color: #ffffff99;
             // text-align: center;
-            & a{
-                color: #fff !important;
+            & a , i{
+                color: #ffffff99 !important;
                 text-decoration: none;
             }
         }

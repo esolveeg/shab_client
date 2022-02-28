@@ -16,6 +16,7 @@
                   </v-col>
                   <v-col
                     cols="12"
+                    md="6"
                     v-for="(input, index) in inputs"
                     :key="index"
                   >
@@ -70,7 +71,7 @@
               <div class="ul">
                 <li>
                 <p><v-icon>mdi-message-outline</v-icon> البريد الاكتروني :</p>
-                <p> info@alshabalriyadi.com</p>
+                <p> info@alshabalriyadi.net</p>
                 </li>
                 <li>
                 <p><v-icon class="phone">mdi-phone-outline</v-icon>رقم الجوال :</p>
@@ -78,15 +79,12 @@
                 </li>
                 <li>
                 <p><v-icon>mdi-map-outline</v-icon> العنوان :</p>
-                <p> المملكة العربية السعودية ، جدة حي الحمراء </p>
+                <p>‫جدة‬ ‫الرئيسية‬ الدارة‬ ‫‪-‬‬ ‫السعودية‬ ‫العربية‬ ‫المملكة‬</p>
+                <p>‫الرياض‬ ‫المشاريع‬ ‫ادارة‬ ‫‪-‬‬ ‫السعودية‬ ‫بية‬ ‫العر‬ ‫المملكة‬</p>
+                
                 </li>
               </div>
           </div>
-          
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3711.252705208692!2d39.17083100000001!3d21.536972!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc28366ddfd733bfc!2zMjHCsDMyJzEwLjQiTiAzOcKwMTAnMjIuMSJF!5e0!3m2!1sen!2sus!4v1639798735386!5m2!1sen!2sus"
-              frameborder="0"
-            ></iframe>
           
           </div>
        
@@ -119,6 +117,11 @@ export default {
         {
           label: 'البريد الالكتروني',
           key: 'email',
+          value: '',
+        },
+        {
+          label: 'رقم الهاتف',
+          key: 'phone',
           value: '',
         },
         {
