@@ -41,11 +41,11 @@
       </v-row>
        <v-row>
         <v-col cols="12" md="6">
-          <p>رقم البطاقة</p>
+          <p>رقم العضوية</p>
           <v-text-field hide-details  append-icon="mdi-numeric" :value="user.Serial" solo disabled></v-text-field >
         </v-col>
         <v-col cols="12" md="6">
-          <p>العضوية</p>
+          <p> نوع العضوية </p>
           <v-text-field hide-details  append-icon="mdi-wallet-membership" :value="user.Role" solo disabled></v-text-field >
         </v-col>
         

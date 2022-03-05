@@ -17,7 +17,7 @@
 
                     <v-textarea
                     label="من فضلك قم بتلخيص طلبك"
-                    counter="40"
+                    counter="400"
                     v-model="breif"
                     outlined
                     ></v-textarea>
@@ -55,7 +55,7 @@ import {required } from '@/utils/Helpers'
     },
     methods:{
       submit(){
-        if(this.breif.length > 40){
+        if(this.breif.length > 400){
           this.error= true;
           return
         }

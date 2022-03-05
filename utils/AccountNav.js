@@ -1,7 +1,7 @@
 export default [
     {
       icon: 'mdi-wallet-membership',
-      title: 'العضوية',
+      title: ' العضوية ',
       to: '/',
     },
     {
@@ -16,7 +16,7 @@ export default [
     },
     {
       icon: 'mdi-bank-check',
-      title: 'مشروعاتك',
+      title: 'مشاريعك',
       to: '/',
     },
     {

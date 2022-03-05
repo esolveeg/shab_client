@@ -1,7 +1,7 @@
 
 export const required = (val , msg = 'هذا الحقل مطلوب') => !!val || msg
 export const name = (val , msg = 'لا بد من ان يكون الاسم ثلاثي') => (val && val.split(" ").length == 3 &&  val.split(" ")[2] != '') || msg
-export const email = (val , msg) => /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(val) || msg
+export const email = (val , msg) => (val == '' || /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(val)) || msg
 // export const name = (val , msg = "لا بد من ان يكون الاسم ثلاثي") => val.split(" ").length == 4 || msg
   
 // export const min = (val , min , msg = `هذا الحقل لابد ن يزيد عن ${min} احرف`) => (val.length >= min || val == '') || msg
@@ -31,7 +31,6 @@ export const createArticleValidation = {
         value => name(value) ,
     ],
       Email :[
-        value => required(value) ,
         value => email(value , "تحقق من البريد اللاكتروني")
     ],
     
