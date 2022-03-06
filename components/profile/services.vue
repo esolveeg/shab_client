@@ -12,7 +12,7 @@
                </v-col>
            </v-row>
         <v-row justify="start" v-else align="center">
-          <v-col cols="12"><h2 class="app-title text-center">خدمات الشاب الريادي</h2> </v-col>
+          <v-col cols="12"><h2 class="app-title text-center">‫الخدمات‬ ‫الاستشارية‬  </h2> </v-col>
           <v-col cols="12" md="3"  v-for="service in services" :key="service.Id">
             <partials-service :service="service"/>
           </v-col>

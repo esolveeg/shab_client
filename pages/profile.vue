@@ -22,7 +22,14 @@
           </v-icon>
           {{ i.title }}
         </v-tab>
-        
+        <v-tab
+          v-if="user.Role_id < 3"
+          @click.prevent="$store.commit('ui/upgradeModal', true)"
+        >
+          <v-icon right> mdi-certificate-outline </v-icon>
+          ترقية العضوية
+        </v-tab>
+
         <v-tab @click.prevent="logout">
           <v-icon right> mdi-logout </v-icon>
           تسجيل خروج
@@ -65,7 +72,6 @@
                     {{ error }}
                   </p>
                 </v-col>
-                
 
                 <v-col cols="12" md="6">
                   <v-textarea
@@ -78,7 +84,7 @@
                   ></v-textarea>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <v-combobox
+                  <v-combobox
                     label="المدينة"
                     ref="city"
                     :items="cities"
@@ -88,8 +94,7 @@
                     item-value="Id"
                     v-model="city"
                     outlined
-                    ></v-combobox>
-                 
+                  ></v-combobox>
                 </v-col>
 
                 <v-col cols="12" class="text-center">
@@ -116,6 +121,45 @@
         <v-tab-item>
           <profile-services />
         </v-tab-item>
+        <v-tab-item v-if="user.Role_id < 3">
+          <v-form ref="form" v-model="valid">
+            <v-row>
+              <v-col cols="12">
+                <v-combobox
+                  label="العضوية"
+                  ref="role"
+                  :items="roles"
+                  item-text="Name"
+                  item-value="Id"
+                  v-model="newRole"
+                  outlined
+                ></v-combobox>
+              </v-col>
+              <v-col cols="6" v-if="showBank">
+                <p>تحويل بنكي بقمة {{upgradeFee}} ر.س</p>
+                <ul>
+                  <li>آيبان : SA9010000012472813000102</li>
+                  <li>الحساب : 12472813000102</li>
+                </ul>
+              </v-col>
+              <v-col cols="6" v-if="showBank">
+                <p>دفع الكتروني</p>
+                <ul>
+                  <li>غير مفعل ف الوقت الحالي</li>
+                </ul>
+              </v-col>
+
+              <v-col cols="12" class="text-center">
+                <v-btn
+                  :loading="loading"
+                  @click.prevent="upgradeRequest()"
+                  class="app-btn"
+                  >ترقية</v-btn
+                >
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-tab-item>
       </v-tabs>
     </v-container>
   </div>
@@ -128,7 +172,7 @@ import { logout, addParamsToLocation, required } from '@/utils/Helpers'
 import { UpdateUser, Upload } from '@/repositoreis/user'
 import { mapGetters } from 'vuex'
 import { updateUserValidation } from '@/utils/validations'
-import {ListCities} from '@/repositoreis/global'
+import { ListCities } from '@/repositoreis/global'
 
 export default {
   data() {
@@ -138,7 +182,10 @@ export default {
       img: null,
       error: null,
       loading: false,
+      upgradeFee:null,
       valid: true,
+      newRole: null,
+      showBank: false,
       updateUserValidation,
       inputs: [
         {
@@ -188,7 +235,7 @@ export default {
         Twitter: null,
         Instagram: null,
       },
-      city:null,
+      city: null,
       errors: {},
       required,
       // tab:0,
@@ -203,6 +250,13 @@ export default {
         this.$store.commit('ui/profileTab', val)
       },
     },
+    roles: {
+      get: function () {
+        return this.$store.getters['ui/roles'].filter(role => role.Id > this.$store.getters['user/user'].Role_id)
+      },
+     
+    },
+
     ...mapGetters({
       user: 'user/user',
       userLoading: 'user/loading',
@@ -216,6 +270,12 @@ export default {
         addParamsToLocation({ tab: this.tab }, this.$route.path)
       },
       deep: true,
+    },
+    newRole: {
+      handler: function (val) {
+        this.showBank = true
+        this.upgradeFee = val.Price
+      },
     },
     img: {
       handler: function (val) {
@@ -231,56 +291,63 @@ export default {
       },
     },
   },
-    methods: {
-      getCities(){
-            ListCities().then((res) => {
-                this.$store.commit('city/cities', res)
-                this.$store.commit('city/loading', false)
-            })
-        },
-      logout() {
-        logout(this.$store)
-        this.$router.push({ name: 'index' })
-      },
-      update() {
-        this.$refs.form.validate()
-        if (this.valid) {
-          this.loading = true
-          if (this.img == null) this.form.Img = ''
-          if (this.city != null) this.form.City_id = this.city.Id
-          UpdateUser(this.form)
-            .then((d) => {
-              this.error = null
-              this.loading = false
-              this.error = null
-              this.$store.commit('ui/snackBar', 'تم تحديث البيانات بنجاح')
-              this.$store.commit('user/user', d)
-            })
-            .catch((e) => {
-              this.error = 'البريد الالكتروني محجوز'
-              this.loading = false
-              window.scrollTo({
-                top: 300,
-                left: 0,
-                behavior: 'smooth',
-              })
-            })
-        }
-      },
+  methods: {
+    upgradeRequest(){
+      this.$store.commit(
+            'ui/snackBar',
+            'تم استلام الطلب بنجاح سنقوم بالتواصل معك'
+          )
+          this.tab  = 0
     },
-    mounted() {
-      if (window.innerWidth < 1000) this.vertical = false
-      if (this.user == null) {
-        this.$router.push('/')
+    getCities() {
+      ListCities().then((res) => {
+        this.$store.commit('city/cities', res)
+        this.$store.commit('city/loading', false)
+      })
+    },
+    logout() {
+      logout(this.$store)
+      this.$router.push({ name: 'index' })
+    },
+    update() {
+      this.$refs.form.validate()
+      if (this.valid) {
+        this.loading = true
+        if (this.img == null) this.form.Img = ''
+        if (this.city != null) this.form.City_id = this.city.Id
+        UpdateUser(this.form)
+          .then((d) => {
+            this.error = null
+            this.loading = false
+            this.error = null
+            this.$store.commit('ui/snackBar', 'تم تحديث البيانات بنجاح')
+            this.$store.commit('user/user', d)
+          })
+          .catch((e) => {
+            this.error = 'البريد الالكتروني محجوز'
+            this.loading = false
+            window.scrollTo({
+              top: 300,
+              left: 0,
+              behavior: 'smooth',
+            })
+          })
       }
-      
-      this.form = { ...this.user }
     },
-    created() {
-        this.getCities()
-      if (this.$route.query.tab) this.tab = parseInt(this.$route.query.tab)
-    },
-  
+  },
+  mounted() {
+    // this.roles = this.storeRoles.filter(role => role.Id > this.user.Role_id)
+    if (window.innerWidth < 1000) this.vertical = false
+    if (this.user == null) {
+      this.$router.push('/')
+    }
+
+    this.form = { ...this.user }
+  },
+  created() {
+    this.getCities()
+    if (this.$route.query.tab) this.tab = parseInt(this.$route.query.tab)
+  },
 }
 </script>
 

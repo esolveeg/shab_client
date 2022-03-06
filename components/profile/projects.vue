@@ -26,7 +26,7 @@
         </v-row>
      </div>
      <v-row align="center">
-        <v-col cols="12"><v-btn class="app-btn" @click.prevent="create"  >اضف مشروع جديد </v-btn></v-col>
+        <v-col cols="12"><v-btn class="app-btn" :disabled="user.Role_id < 3" @click.prevent="create"  >اضف مشروع جديد </v-btn></v-col>
       </v-row>
       <modals-create-project @created="getProjects"/>
     </div>

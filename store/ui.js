@@ -6,6 +6,7 @@ export const state = () => ({
     projectModal:false,
     articlesModal:false,
     serviceModal:false,
+    upgradeModal:false,
     snackBarText : null,
     profileTab:0,
     home:null
@@ -17,6 +18,9 @@ export const mutations = {
     },
     serviceModal(state,payload){
         state.serviceModal = payload
+    },
+    upgradeModal(state,payload){
+        state.upgradeModal = payload
     },
     profileTab(state, payload) {
         state.profileTab = payload;
@@ -55,6 +59,9 @@ export const getters = {
     },
     serviceModal: state => {
         return state.serviceModal
+    },
+    upgradeModal: state => {
+        return state.upgradeModal
     },
     profileTab: state => {
         return state.profileTab
