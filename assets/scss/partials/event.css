@@ -54,11 +54,6 @@
   right: 0;
 }
 
-.event .top .status {
-  background-color: var(--danger);
-  top: 40%;
-}
-
 .event .top .join {
   position: absolute;
   top: 50%;
@@ -115,6 +110,14 @@
 .event .top .date p:last-child {
   width: 100%;
   background-color: #0480CC;
+}
+
+.event .status {
+  background-color: var(--danger);
+  border-radius: 15px;
+  padding: 5px 10px;
+  color: #fff;
+  top: 40%;
 }
 
 .event h2 {

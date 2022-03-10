@@ -5,9 +5,7 @@
            <p class="cat">
                {{event.CatName}}
            </p>
-           <p class="status"  v-if="finished">
-              تم الانتهاء
-           </p>
+           
            <div class="join">
                <v-btn class="app-btn" @click.prevent="goToEvent(event.Id)">انضم الينا</v-btn>
            </div>
@@ -19,7 +17,10 @@
             
        </div>
        <h2>{{event.Title}}</h2>
-       <h3>{{price(event.Price)}}</h3>
+       <p class="status"  v-if="finished">
+              تم الانتهاء
+           </p>
+       <h3 v-else>{{price(event.Price)}}</h3>
    </div>
 </template>
 

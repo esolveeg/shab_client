@@ -29,6 +29,11 @@
   overflow: hidden;
 }
 
+.vip::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), color-stop(50%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.1)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
 .vip:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);

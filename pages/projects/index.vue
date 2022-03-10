@@ -2,12 +2,12 @@
   <div class="blog">
     <v-container>
       <v-row>
-        <v-col cols="3" class="sm-hidden">
+        <v-col cols="12" class="sm-hidden">
           <v-text-field v-model="form.search" clearable label="بحث"></v-text-field>
           <layouts-side-bar-cats @clear="clearCat" :cats="cats" v-if="!catLoading" @filter="selectCat" />
           <v-skeleton-loader v-else type="list"></v-skeleton-loader>
         </v-col>
-        <v-col cols="12" class="py-12 " md="9">
+        <v-col cols="12" class="py-12 " >
           <v-col cols="12" class="md-hidden">
             <div class="d-flex align-center justify-space-between">
               <h2 class="app-title">مشاريع الشاب الريادي</h2>
@@ -28,7 +28,7 @@
           <v-skeleton-loader v-if="loading" type="card"></v-skeleton-loader>
           <div v-else-if="items.length > 0">
             <v-row>
-              <v-col cols="12" md="4" v-for="project in items" :key="project.Id">
+              <v-col cols="12" md="3" v-for="project in items" :key="project.Id">
                 <partials-project :project="project" />
               </v-col>
             </v-row>

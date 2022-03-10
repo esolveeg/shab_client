@@ -6,7 +6,10 @@
     <v-container v-else>
       <v-tabs :vertical="vertical" v-model="tab">
         <div class="user__data">
-          <partials-member-avatar :img="user.Img" @click.prevent="toggle()" />
+          <div class="avatar">
+            <v-icon class="camera-icon">mdi-camera</v-icon>
+            <partials-member-avatar :img="user.Img" @click.prevent="toggle()" />
+          </div>
           <v-file-input
             class="hidden-file-input"
             truncate-length="15"
@@ -78,7 +81,8 @@
                     :label="breif.label"
                     @keyup.enter="valid ? update : ''"
                     v-model="form[breif.key]"
-                    rows="3"
+                    rows="4"
+                    counter="140"
                     :error-messages="errors[breif.key]"
                     outlined
                   ></v-textarea>

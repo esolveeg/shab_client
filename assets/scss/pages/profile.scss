@@ -10,8 +10,21 @@
             display: none;
             
         }
-        & .member-avatar{
-            margin-bottom: 30px;
+        .avatar{
+            position: relative;
+            & .camera-icon{
+                position: absolute;
+                top: 0;
+                right: 0px;
+                background-color: #fff;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                box-shadow: var(--shadow);
+            }
+            & .member-avatar{
+                margin-bottom: 30px;
+            }
         }
         & h2{
             color:var(--font-color);

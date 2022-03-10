@@ -147,7 +147,7 @@
     ></v-progress-circular> -->
 
 
-    <div class="typewriter">
+    <div class="loading-header">
       <h1>شباب ريادي طموح</h1>
     </div>
 
