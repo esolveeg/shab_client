@@ -37,8 +37,8 @@ export default {
       setTimeout(() => {
         this.$store.commit('ui/appLoading' , false)
         console.log(this.$route.query.resetId)
-    console.log("this.$route.query.resetId")
-    if(this.$route.query.resetId) {
+    console.log("this.$route.query.resetEmail")
+    if(this.$route.query.resetEmail) {
          this.$store.commit('ui/loginModal' , true
          
          )
