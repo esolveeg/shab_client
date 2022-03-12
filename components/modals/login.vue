@@ -25,7 +25,25 @@
                 </v-col>
                </v-row>
             </v-form>
-            <v-form v-else ref="loginFrom" :valid="valid">
+            <v-form v-if="resetPassword">
+               <v-row>
+                    <v-col cols="12" class="my-8">
+                        <h2 class="app-title">تغير كلمة المرور</h2>
+                    </v-col>
+                <v-col cols="12">
+                    <p class="app-error" v-show="error !=null">{{error}}</p>
+                    <v-text-field
+                    label="كلمة المرور"
+                    v-model="resetForm.password"
+                    outlined
+                    ></v-text-field>
+                </v-col>
+                 <v-col cols="12" class="text-center">
+                    <v-btn @click.prevent="reset()" class="app-btn">ارسال</v-btn>
+                </v-col>
+               </v-row>
+            </v-form>
+            <v-form v-else ref="loginFrom" v-if="!forgotPassword" :valid="valid">
                 <v-row>
                     <v-col cols="12" class="my-8">
                         <h2 class="app-title">تسجيل الدخول</h2>
@@ -68,7 +86,7 @@
 <script>
 import {required } from '@/utils/Helpers'
 import {mapGetters} from 'vuex'
-import {Login} from '@/repositoreis/user'
+import {Login , Reset , SendResetEmail} from '@/repositoreis/user'
 import {snackBar} from '@/utils/Helpers'
   export default {
     data: () => ({
@@ -76,6 +94,10 @@ import {snackBar} from '@/utils/Helpers'
       loading:false,
       valid:false,
       forgotPassword:false,
+      resetPassword:false,
+      resetForm:{
+        Password:null,
+      },
       email:"",
       snackBar,
       errors:{
@@ -101,9 +123,21 @@ import {snackBar} from '@/utils/Helpers'
     },
     methods:{
       sendEmail(){
-         this.$store.commit('ui/snackBar' , 'تم ارسال رابط الي بريدك الالكتروني لاسترجاع الحساب')
-         this.$store.commit('ui/loginModal' , false)
+        // send to server that current user need to reset the password
+        SendResetEmail(this.email).then(() => {
+          this.$store.commit('ui/snackBar' , 'تم ارسال رابط الي بريدك الالكتروني لاسترجاع الحساب')
+          this.$store.commit('ui/loginModal' , false)
           this.forgotPassword = false
+        })
+      },
+      reset(){
+        Reset(this.$route.query.restEmail , this.resetForm).then(res => {
+          this.$store.commit('ui/snackBar' , 'تم تغر كلمة المرور')
+         this.$store.commit('ui/loginModal' , false)
+         this.resetPassword = false
+        addParamsToLocation({} , this.$route.path)
+
+        })
       },
       login() {
         this.loading = true
@@ -163,6 +197,11 @@ import {snackBar} from '@/utils/Helpers'
             }
 
         },
+    },
+    created(){
+      if(this.$route.query.resetEmail) {
+        this.resetPassword = true
+      }
     },
     watch: {
     form:{

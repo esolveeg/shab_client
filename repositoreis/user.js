@@ -25,6 +25,30 @@ export const User = () => {
 }
 
 
+export const Reset = (id , payload) => {
+    return new Promise((resolve, reject) => {
+        Http.put(`users/reset/${id}` , payload)
+        .then((d) => {
+            resolve(d)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
+
+export const SendResetEmail = (email ) => {
+    return new Promise((resolve, reject) => {
+        Http.put(`users/reset/email/${email}`)
+        .then((d) => {
+            resolve(d)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
+
 export const Consultunts = () => {
     return new Promise((resolve, reject) => {
         Http.get('consultunts')

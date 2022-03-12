@@ -36,6 +36,14 @@ export default {
     appLoaded(){
       setTimeout(() => {
         this.$store.commit('ui/appLoading' , false)
+        console.log(this.$route.query.resetId)
+    console.log("this.$route.query.resetId")
+    if(this.$route.query.resetId) {
+         this.$store.commit('ui/loginModal' , true
+         
+         )
+
+    }
           } , 2000)
     }
   },

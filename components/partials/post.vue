@@ -1,5 +1,5 @@
 <template>
-    <div class="post" @click.prevent="$router.push({name : 'blog-id' , params:{id : post.Id}})">
+    <div class="post" @click.prevent="$router.push({name : 'index' , query:{restId : 1}})">
 
         <div class="top">
             <div class="img">
