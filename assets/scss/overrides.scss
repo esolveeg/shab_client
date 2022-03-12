@@ -34,7 +34,7 @@
 }
 .role-1{
     & .member-avatar{
-        border: 4px  solid #501068  !important;
+        border: 4px  solid #6a288b  !important;
     }
 }
 
@@ -62,4 +62,11 @@
   }
   .v-chip .v-chip__content{
       text-align: center;
+  }
+  .v-application--is-rtl .v-text-field .v-counter{
+      margin-top: 10px;
+  }
+  .sidebar {
+      display: flex !important;
+      border-radius: 30px !important;
   }

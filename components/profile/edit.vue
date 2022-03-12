@@ -36,6 +36,7 @@
                     @keyup.enter="valid ? update : ''"
                     v-model="form[breif.key]"
                     rows="3"
+                    counter="140"
                     :error-messages="errors[breif.key]"
                     outlined
                     ></v-textarea>

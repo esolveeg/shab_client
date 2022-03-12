@@ -26,7 +26,7 @@
 }
 
 .role-1 .member-avatar {
-  border: 4px  solid #501068  !important;
+  border: 4px  solid #6a288b  !important;
 }
 
 .user__membership .v-tabs .v-tabs-bar {
@@ -37,13 +37,16 @@
 .user__membership .v-tabs-bar .v-tab {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
   margin-bottom: 20px;
   margin-right: 10px;
 }
 
 .user__membership .v-slide-group__content {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .user__membership .v-tabs-slider-wrapper {
@@ -53,3 +56,15 @@
 .v-chip .v-chip__content {
   text-align: center;
 }
+
+.v-application--is-rtl .v-text-field .v-counter {
+  margin-top: 10px;
+}
+
+.sidebar {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  border-radius: 30px !important;
+}
+/*# sourceMappingURL=overrides.css.map */

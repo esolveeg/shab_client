@@ -1,5 +1,5 @@
 <template>
-    <v-list>
+    <v-list class="sidebar" rounded outlined> 
             
             <v-list-item
               @click.prevent="$emit('clear')"
@@ -10,6 +10,9 @@
             <v-list-item
               v-for="cat in cats"
               :key="cat.Id"
+              rounded
+              center
+              outlined
               @click.prevent="$emit('filter' , cat)"
             >
               <v-icon class="ml-4">mdi-{{ cat.Icon }}</v-icon>

@@ -2,7 +2,7 @@
   <div class="blog">
     <v-container>
       <v-row>
-        <v-col cols="3" class="sm-hidden">
+        <v-col cols="12" class="sm-hidden">
           <layouts-side-bar-cats
             @clear="clearCat"
             :cats="cats"
@@ -11,7 +11,7 @@
           />
           <v-skeleton-loader v-else type="list"></v-skeleton-loader>
         </v-col>
-        <v-col cols="12" class="py-12" md="9">
+        <v-col cols="12" class="py-12">
           <v-col cols="12" class="md-hidden">
             <div class="d-flex items-center justify-space-between">
               <h2 class="app-title">الفديوهات</h2>
@@ -32,7 +32,7 @@
           <v-skeleton-loader v-if="loading" type="card"></v-skeleton-loader>
           <div v-else-if="items.length > 0">
             <v-row>
-              <v-col cols="12" md="6" v-for="video in items.slice(startIndexSlice ,endIndexSlice)" :key="video.Id">
+              <v-col cols="12" md="4" v-for="video in items.slice(startIndexSlice ,endIndexSlice)" :key="video.Id">
                 <partials-video :video="video" />
               </v-col>
               <v-col cols="12">
