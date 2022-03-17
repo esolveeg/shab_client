@@ -209,7 +209,7 @@
           </svg>
           <div class="desktop-nav">
             <ul>
-              <li v-for="(i, index) in items" :key="index + 20">
+              <li v-for="(i, index) in desktopItems" :key="index + 20">
                 <nuxt-link :to="i.to">{{ i.title }}</nuxt-link>
               </li>
               <li class="profile">
@@ -472,6 +472,11 @@ export default {
     }
   },
   computed: {
+    desktopItems(){
+      let desktopItems = [...this.items];
+      desktopItems.splice(1,1)
+      return desktopItems;
+    },
     drawer: {
       get: function () {
         return this.$store.getters['ui/drawer']

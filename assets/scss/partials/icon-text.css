@@ -13,6 +13,13 @@
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.icon-text:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
 }
 
 .icon-text .icon {

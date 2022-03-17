@@ -30,8 +30,20 @@
 }
 
 .vip::before {
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), color-stop(50%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.1)));
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.1) 100%);
+  content: "";
+  width: 100%;
+  height: 25%;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
+
+.vip::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.6)), color-stop(15%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 15%, rgba(0, 0, 0, 0) 100%);
 }
 
 .vip:hover {
@@ -40,24 +52,13 @@
 }
 
 .vip:hover::before {
+  height: 100%;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), color-stop(50%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.1)));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .vip:hover p {
   height: auto;
-}
-
-.vip::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  -webkit-transition: background-color .3s ease;
-  transition: background-color .3s ease;
 }
 
 .vip p {

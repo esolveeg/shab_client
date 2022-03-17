@@ -4,20 +4,20 @@
       <img
         src="@/assets/images/temp01.png"
         alt="الشاب الريادي"
-        v-if="user.Role_id == 1"
+        v-if="role == 1"
       />
       <img
         src="@/assets/images/temp02.png"
         alt="الشاب الريادي"
-        v-if="user.Role_id == 2"
+        v-if="role == 2"
       />
       <img
         src="@/assets/images/temp03.png"
         alt="الشاب الريادي"
-        v-if="user.Role_id == 3"
+        v-if="role == 3"
       />
       <div class="card-data">
-    <div class="water_mark"  v-if="$route.name != 'profile'">
+    <div class="water_mark"  v-if="test">
       <p v-for="i in 20" :key="i">معاينة</p>
     </div>
         <h4 class="card-name"></h4>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  props: ['user'],
+  props: ['user' , 'role' , 'test'],
 }
 </script>
 

@@ -34,7 +34,8 @@
                     <p class="app-error" v-show="error !=null">{{error}}</p>
                     <v-text-field
                     label="كلمة المرور"
-                    v-model="resetForm.password"
+                    type="password"
+                    v-model="resetForm.Password"
                     outlined
                     ></v-text-field>
                 </v-col>
@@ -43,7 +44,7 @@
                 </v-col>
                </v-row>
             </v-form>
-            <v-form v-else ref="loginFrom" v-if="!forgotPassword" :valid="valid">
+            <v-form href="loginFrom" v-if="!forgotPassword && !resetPassword" :valid="valid">
                 <v-row>
                     <v-col cols="12" class="my-8">
                         <h2 class="app-title">تسجيل الدخول</h2>
@@ -131,7 +132,7 @@ import {snackBar} from '@/utils/Helpers'
         })
       },
       reset(){
-        Reset(this.$route.query.restEmail , this.resetForm).then(res => {
+        Reset(this.$route.query.resetEmail , this.resetForm).then(res => {
           this.$store.commit('ui/snackBar' , 'تم تغر كلمة المرور')
          this.$store.commit('ui/loginModal' , false)
          this.resetPassword = false

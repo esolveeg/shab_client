@@ -4,6 +4,10 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    transition: all .3s ease;
+    &:hover{
+        transform: scale(1.08);
+    }
 
     & .icon{
         padding: 30px;

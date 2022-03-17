@@ -7,7 +7,7 @@
         </v-stepper-step>
 
         <v-stepper-content step="1">
-          <partials-card :user="form"></partials-card>
+          <partials-card :user="form" :role="form.Role_id" :test="true"></partials-card>
 
           <v-form ref="loginFrom" v-model="valid">
             <v-row>

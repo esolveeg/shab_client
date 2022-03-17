@@ -128,7 +128,10 @@
         <v-tab-item v-if="user.Role_id < 3">
           <v-form ref="form" v-model="valid">
             <v-row>
-              <v-col cols="12">
+              <v-col cols="12" md="6">
+                asd
+              </v-col>
+              <v-col cols="12" md="6">
                 <v-combobox
                   label="العضوية"
                   ref="role"

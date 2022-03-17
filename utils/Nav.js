@@ -5,19 +5,19 @@ export default  [
       to: '/',
     },
     {
-        icon: 'mdi-account-outline',
-        title: 'الاعضاء',
-        to: '/members',
-      },
+      icon: 'mdi-information-variant',
+      title: 'من نحن',
+      to: '/about',
+    },
+    {
+      icon: 'mdi-shield-crown-outline',
+      title: 'المستشارين',
+      to: '/consultunts',
+    },
     {
       icon: 'mdi-wallet-membership',
       title: 'العضويات',
       to: '/memberships',
-    },
-    {
-      icon: 'mdi-account-group-outline',
-      title: 'الشبكة التنفيذية',
-      to: '/ryadeen',
     },
     {
       icon: 'mdi-calendar-multiselect',
@@ -25,14 +25,19 @@ export default  [
       to: '/events',
     },
     {
+        icon: 'mdi-account-outline',
+        title: 'الاعضاء',
+        to: '/members',
+    },
+    {
+      icon: 'mdi-account-group-outline',
+      title: 'الشبكة التنفيذية',
+      to: '/ryadeen',
+    },
+    {
       icon: 'mdi-post-outline',
       title: 'المدونة',
       to: '/blog',
-    },
-    {
-      icon: 'mdi-bank-check',
-      title: 'المشاريع',
-      to: '/projects',
     },
     {
       icon: 'mdi-video-wireless-outline',
@@ -40,8 +45,8 @@ export default  [
       to: '/videos',
     },
     {
-      icon: 'mdi-shield-crown-outline',
-      title: 'المستشارين',
-      to: '/consultunts',
+      icon: 'mdi-bank-check',
+      title: 'المشاريع',
+      to: '/projects',
     },
   ]

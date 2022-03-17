@@ -2,7 +2,7 @@
     <div class="share d-flex">
 
         <v-icon>mdi-twitter</v-icon>
-        <v-icon>mdi-instagram</v-icon>
+        <v-icon>mdi-whatsapp</v-icon>
         <v-icon>mdi-facebook</v-icon>
         <v-btn text @click="copy">
             <span  v-if="!copied">نسخ الرابط</span>

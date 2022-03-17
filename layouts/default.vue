@@ -40,7 +40,6 @@ export default {
     console.log("this.$route.query.resetEmail")
     if(this.$route.query.resetEmail) {
          this.$store.commit('ui/loginModal' , true
-         
          )
 
     }

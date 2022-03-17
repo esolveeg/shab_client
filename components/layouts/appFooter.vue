@@ -29,31 +29,23 @@
                 </ul> -->
         </v-col>
         <v-col cols="6" md="3">
-          <h3 class="footer-title">اهم الروابط</h3>
+          <h3 class="footer-title">معلومات حولنا</h3>
           <ul>
-            <li><nuxt-link to="/memberships"> العضويات </nuxt-link></li>
             <li><nuxt-link to="/about"> من نحن </nuxt-link></li>
-            <li v-if="user == null">
-              <a @click.prevent="$store.commit('ui/loginModal', true)">
-                تسجيل الدخول
-              </a>
-            </li>
-            <li v-if="user == null">
-              <nuxt-link to="/consultunts"> المستشارن </nuxt-link>
-            </li>
-            <li v-else>
-              <nuxt-link to="/profile">
-                {{ user.Name_ar }}
-              </nuxt-link>
-            </li>
+              <li><nuxt-link to="/consultunts"> المستشارين </nuxt-link></li>
+              <li><nuxt-link to="/memberships"> العضويات </nuxt-link></li>
+              <li><nuxt-link to="/events"> الفعاليات </nuxt-link></li>
+              <li><nuxt-link to="/contact"> اتصل بنا </nuxt-link></li>
           </ul>
         </v-col>
         <v-col cols="6" md="3">
-          <h3 class="footer-title">روابط الاعضاء</h3>
+          <h3 class="footer-title">روابط اعضاء المجتمع</h3>
           <ul>
-            <li><nuxt-link to="/projects"> المشاريع </nuxt-link></li>
             <li><nuxt-link to="/members"> الاعضاء </nuxt-link></li>
+            <li><nuxt-link to="/ryadeen"> الشبكة النتفيذية </nuxt-link></li>
+            <li><nuxt-link to="/blog"> المدونة </nuxt-link></li>
             <li><nuxt-link to="/videos"> الفيديوهات </nuxt-link></li>
+            <li><nuxt-link to="/projects">المشاريع </nuxt-link></li>
           </ul>
         </v-col>
 
