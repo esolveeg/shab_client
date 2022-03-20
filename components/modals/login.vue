@@ -141,7 +141,7 @@ import {snackBar} from '@/utils/Helpers'
       reset(){
         this.resetForm.Email = this.$route.query.resetEmail
         Reset(this.resetForm).then(res => {
-          this.$store.commit('ui/snackBar' , 'تم تغر كلمة المرور')
+          this.$store.commit('ui/snackBar' , ' تم تغر كلمة المرور')
           this.$store.commit('ui/loginModal' , false)
           this.resetPassword = false
           addParamsToLocation({} , this.$route.path)
