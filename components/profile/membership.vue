@@ -116,7 +116,7 @@ export default {
   data(){
     let newRole  = this.$store.getters['user/user'].Role_id
     return {
-      tab : 2,
+      tab : null,
       showBank:false,
       upgradeFee: null,
       valid:false,

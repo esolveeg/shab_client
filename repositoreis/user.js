@@ -25,9 +25,9 @@ export const User = () => {
 }
 
 
-export const Reset = (id , payload) => {
+export const Reset = (payload) => {
     return new Promise((resolve, reject) => {
-        Http.put(`users/reset/${id}` , payload)
+        Http.put(`users/reset` , payload)
         .then((d) => {
             resolve(d)
         }).catch(e => {
@@ -39,7 +39,11 @@ export const Reset = (id , payload) => {
 
 export const SendResetEmail = (email ) => {
     return new Promise((resolve, reject) => {
-        Http.put(`users/reset/email/${email}`)
+        const req = {
+            "Email" :email,
+            "url" :  window.location.origin
+        }
+        Http.put(`users/reset/email/` , req)
         .then((d) => {
             resolve(d)
         }).catch(e => {

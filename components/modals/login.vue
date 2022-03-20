@@ -19,6 +19,9 @@
                     v-model="email"
                     outlined
                     ></v-text-field>
+                     <v-btn text @click.prevent="forgotPassword = false">
+                     تسجيل الدخول
+                    </v-btn>
                 </v-col>
                  <v-col cols="12" class="text-center">
                     <v-btn @click.prevent="sendEmail()" class="app-btn">ارسال</v-btn>
@@ -38,7 +41,11 @@
                     v-model="resetForm.Password"
                     outlined
                     ></v-text-field>
+                    <v-btn text @click.prevent="resetPassword = false">
+                     تسجيل الدخول
+                    </v-btn>
                 </v-col>
+                
                  <v-col cols="12" class="text-center">
                     <v-btn @click.prevent="reset()" class="app-btn">ارسال</v-btn>
                 </v-col>
@@ -132,12 +139,12 @@ import {snackBar} from '@/utils/Helpers'
         })
       },
       reset(){
-        Reset(this.$route.query.resetEmail , this.resetForm).then(res => {
+        this.resetForm.Email = this.$route.query.resetEmail
+        Reset(this.resetForm).then(res => {
           this.$store.commit('ui/snackBar' , 'تم تغر كلمة المرور')
-         this.$store.commit('ui/loginModal' , false)
-         this.resetPassword = false
-        addParamsToLocation({} , this.$route.path)
-
+          this.$store.commit('ui/loginModal' , false)
+          this.resetPassword = false
+          addParamsToLocation({} , this.$route.path)
         })
       },
       login() {

@@ -25,13 +25,7 @@
           </v-icon>
           {{ i.title }}
         </v-tab>
-        <v-tab
-          v-if="user.Role_id < 3"
-          @click.prevent="$store.commit('ui/upgradeModal', true)"
-        >
-          <v-icon right> mdi-certificate-outline </v-icon>
-          ترقية العضوية
-        </v-tab>
+       
 
         <v-tab @click.prevent="logout">
           <v-icon right> mdi-logout </v-icon>
@@ -125,48 +119,7 @@
         <v-tab-item>
           <profile-services />
         </v-tab-item>
-        <v-tab-item v-if="user.Role_id < 3">
-          <v-form ref="form" v-model="valid">
-            <v-row>
-              <v-col cols="12" md="6">
-                asd
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-combobox
-                  label="العضوية"
-                  ref="role"
-                  :items="roles"
-                  item-text="Name"
-                  item-value="Id"
-                  v-model="newRole"
-                  outlined
-                ></v-combobox>
-              </v-col>
-              <v-col cols="6" v-if="showBank">
-                <p>تحويل بنكي بقمة {{upgradeFee}} ر.س</p>
-                <ul>
-                  <li>آيبان : SA9010000012472813000102</li>
-                  <li>الحساب : 12472813000102</li>
-                </ul>
-              </v-col>
-              <v-col cols="6" v-if="showBank">
-                <p>دفع الكتروني</p>
-                <ul>
-                  <li>غير مفعل ف الوقت الحالي</li>
-                </ul>
-              </v-col>
-
-              <v-col cols="12" class="text-center">
-                <v-btn
-                  :loading="loading"
-                  @click.prevent="upgradeRequest()"
-                  class="app-btn"
-                  >ترقية</v-btn
-                >
-              </v-col>
-            </v-row>
-          </v-form>
-        </v-tab-item>
+       
       </v-tabs>
     </v-container>
   </div>
