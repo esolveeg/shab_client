@@ -98,6 +98,7 @@
 import { required } from '@/utils/Helpers'
 import { contactUsValidation } from '@/utils/validations'
 import { snackBar } from '@/utils/Helpers'
+import {SendContactMsg} from '@/repositoreis/contact'
 export default {
   data() {
     const Role_id = parseInt(this.$route.query.role)
@@ -148,8 +149,10 @@ export default {
   },
   methods: {
     send() {
-      this.$store.commit('ui/snackBar' , 'تم ارسال رسالتك بنجاح سنقوم بالرد في اقرب وقت')
-      this.$refs.contactForm.reset()
+      SendContactMsg(this.form).then(res => {
+        this.$store.commit('ui/snackBar' , 'تم ارسال رسالتك بنجاح سنقوم بالرد في اقرب وقت')
+        this.$refs.contactForm.reset()
+      })
      
     },
     validate() {},

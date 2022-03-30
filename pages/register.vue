@@ -208,7 +208,7 @@ export default {
       form: {
         Name: null,
         Name_ar: null,
-        Serial: 2000100,
+        Serial: "2000100",
         Role_id: null,
         Phone: null,
         Password: null,
@@ -263,9 +263,9 @@ export default {
     }
     const roleId = parseInt(this.$route.query.role)
     this.form.Role_id = roleId
-    let serial = 2000100
-    if (roleId == 2) serial = 2200100
-    if (roleId == 1) serial = 2400100
+    let serial = "2000100"
+    if (roleId == 2) serial = "2200100"
+    if (roleId == 1) serial = "2400100"
     this.form.Serial = serial
     Object.keys(this.form).forEach((key) => {
       this.errors[key] = []
