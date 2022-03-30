@@ -217,7 +217,7 @@ export default {
       required,
     }
   },
-
+//pages/register.vue
   computed: {
     ...mapGetters({
       roles: 'ui/roles',

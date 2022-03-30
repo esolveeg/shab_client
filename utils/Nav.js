@@ -9,11 +9,7 @@ export default  [
       title: 'من نحن',
       to: '/about',
     },
-    {
-      icon: 'mdi-shield-crown-outline',
-      title: 'المستشارين',
-      to: '/consultunts',
-    },
+   
     {
       icon: 'mdi-wallet-membership',
       title: 'العضويات',
@@ -33,6 +29,11 @@ export default  [
       icon: 'mdi-account-group-outline',
       title: 'الشبكة التنفيذية',
       to: '/ryadeen',
+    },
+    {
+      icon: 'mdi-shield-crown-outline',
+      title: 'المستشارين',
+      to: '/consultunts',
     },
     {
       icon: 'mdi-post-outline',
