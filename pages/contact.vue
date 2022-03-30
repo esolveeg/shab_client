@@ -112,35 +112,36 @@ export default {
       inputs: [
         {
           label: 'الاسم ',
-          key: 'name',
+          key: 'Name',
           value: '',
         },
         {
           label: 'البريد الالكتروني',
-          key: 'email',
+          key: 'Email',
           value: '',
         },
         {
           label: 'رقم الهاتف',
-          key: 'phone',
+          key: 'Phone',
           value: '',
         },
         {
           label: 'الموضوع',
-          key: 'subject',
+          key: 'Subject',
           value: '',
         },
       ],
 
       msg: {
         label: 'الرسالة',
-        key: 'msg',
+        key: 'Breif',
       },
       form: {
-        name: null,
-        email: null,
-        subject: null,
-        msg: null,
+        Name: "asd",
+        Email: "Asd@asd.com",
+        Subject: "asd",
+        Phone: "asdasd",
+        Breif: "asd",
       },
       errors: {},
       form: {},

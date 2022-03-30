@@ -13,6 +13,18 @@ export const Login = (payload) => {
 }
 
 
+
+export const RequestService = (id , Breif) => {
+    return new Promise((resolve, reject) => {
+        Http.post(`users/service/${id}` , {Breif})
+        .then((d) => {
+            resolve(d)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
 export const User = () => {
     return new Promise((resolve, reject) => {
         Http.get('me')

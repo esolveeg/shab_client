@@ -35,6 +35,7 @@
   </v-row>
 </template>
 <script>
+import {RequestService} from '@/repositoreis/user.js'
 import {required } from '@/utils/Helpers'
   export default {
     data: () => ({
@@ -59,8 +60,10 @@ import {required } from '@/utils/Helpers'
           this.error= true;
           return
         }
-         this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
-         this.modal = false
+        RequestService(this.$store.getters['user/serviceId'] ,  this.breif).then(()  => {
+          this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
+          this.modal = false
+        })
       },
     },
    

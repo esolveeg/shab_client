@@ -23,6 +23,7 @@ export const state = () => ({
     },
     projects:[],
     articles:[],
+    serviceId : null,
     loading:true,
     loggedIn:false
 });
@@ -31,6 +32,9 @@ export const mutations = {
     user(state, payload) {
         state.loggedIn = payload != null
         state.user = payload;
+    },
+    serviceId(state, payload) {
+        state.serviceId = payload 
     },
     consultunts(state,payload){
         state.consultunts = payload
@@ -56,6 +60,9 @@ export const mutations = {
 export const getters = {
     user: state => {
         return state.user
+    },
+    serviceId: state => {
+        return state.serviceId
     },
     dummyUserMobadr: state => {
         return state.dummyUserMobadr

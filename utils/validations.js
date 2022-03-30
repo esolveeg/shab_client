@@ -22,15 +22,7 @@ export const createArticleValidation = {
   ]
 }
   export const updateUserValidation = {
-      Name_ar :[
-        value => required(value) ,
-        value => name(value) ,
-    ],
-     Name :[
-        value => required(value) ,
-        value => name(value) ,
-    ],
-      Email :[
+    Email :[
         value => email(value , "تحقق من البريد اللاكتروني")
     ],
     
