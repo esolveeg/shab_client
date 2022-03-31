@@ -78,7 +78,7 @@
                     <v-select
                     label="المدينة"
                     ref="city"
-                    @keyup.enter="$refs.location.focus()"
+                    @keyup.enter="$refs.website.focus()"
                     :items="cities"
                     :loading="citiesLoading"
                     item-text="Name"
@@ -88,16 +88,6 @@
                     :error-messages="errors.CityId"
                     outlined
                     ></v-select>
-                </v-col>
-                <v-col cols="12" md="6">
-                    <v-text-field
-                    label="الموقع الجغرافي"
-                    ref="location"
-                    :rules="createProjectValidation.Location"
-                    v-model="form.Location"
-                    :error-messages="errors.Location"
-                    outlined
-                    ></v-text-field>
                 </v-col>
                  <v-col cols="12" md="6">
                     <v-text-field

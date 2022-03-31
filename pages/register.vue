@@ -38,7 +38,7 @@
                   outlined
                 ></v-text-field>
               </v-col>
-              <v-col cols="12" md="6">
+              <!-- <v-col cols="12" md="6">
                 <v-text-field
                   label="تاريخ الابتداء"
                   value="1/1/2022"
@@ -53,7 +53,7 @@
                   :disabled="true"
                   outlined
                 ></v-text-field>
-              </v-col>
+              </v-col> -->
 
               <v-col cols="12" class="text-center">
                 <v-btn
@@ -238,7 +238,10 @@ export default {
           this.$router.push('/')
         })
         .catch((e) => {
-          console.log(e)
+          this.stepper = 1
+          field = e.body == "Error 1062: Duplicate entry '05466176681' for key 'users.phone'"? 'الهاتف' : 'البريد'
+          this.loading = false
+          this.error = `هذا ${field} مستخدم من قبل`
         })
     },
     price,

@@ -570,7 +570,11 @@ footer::before {
 }
 
 footer .footer-logo {
-  width: 50px;
+  width: 150px;
+}
+
+footer .footer-logo-svg {
+  width: 80px;
 }
 
 footer .footer-about {
