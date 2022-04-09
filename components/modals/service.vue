@@ -13,7 +13,7 @@
                         <h2 class="app-title">اطلب خدمة</h2>
                     </v-col>
                 <v-col cols="12">
-                    <p class="app-error" v-show="error">من فضلك قم بكتابة 40 حرف بحد اقصي</p>
+                    <p class="app-error" v-show="error">من فضلك قم بكتابة 400 حرف بحد اقصي و 100 حرف كحد ادني</p>
 
                     <v-textarea
                     label="من فضلك قم بتلخيص طلبك"
@@ -56,13 +56,16 @@ import {required } from '@/utils/Helpers'
     },
     methods:{
       submit(){
-        if(this.breif.length > 400){
+        console.log(this.breif.length)
+        if(this.breif.length > 400 || this.breif.length < 100){
           this.error= true;
           return
         }
         RequestService(this.$store.getters['user/serviceId'] ,  this.breif).then(()  => {
-          this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
-          this.modal = false
+          // this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
+          // this.breif = null
+          // this.error = false
+          // this.modal = false
         })
       },
     },

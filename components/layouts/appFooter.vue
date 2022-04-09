@@ -3,13 +3,12 @@
     <v-container>
       <v-row>
         <v-col cols="6" md="3" class="text-right">
-          <h3 class="footer-title">نبذة عن الشاب الريادي</h3>
+        <a href="https://businessprosa.com/"><img class="footer-logo"  src="@/assets/images/powered.png" /></a>
           
           <p class="footer-about">
             منصة مجتمع الشاب الريادي إحدى برامج ريادة الأعمال في شركة “بزنس برو
             Business Pro l” للاستشارات
           </p>
-        <img class="footer-logo" src="@/assets/images/powerd.png" />
 
           <!-- <ul>
                     <li><nuxt-link to="/">

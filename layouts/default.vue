@@ -1,5 +1,5 @@
 <template>
-  <v-app :class="user == null ? `role-0` : `role-${user.Role_id}`">
+  <v-app :class="user == null ? `role-0 ${$route.name}` : `role-${user.Role_id} ${$route.name}`">
     <layouts-app-loading v-if="appLoading"/>
 
     <layouts-app-nav/>

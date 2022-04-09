@@ -1,22 +1,16 @@
 <template>
- <div class="consultunt" >
-     <div class="img"  :style="`background-image:url(${user.Img})`">
-         
-     </div>
-     <div class="bottom" style="background-color: var(--primary);
-color: #fff;
-padding: 10px;
-border-radius: 10px;">
-         <h2>{{user.Name_ar}}</h2>
-         <span class="job-title">{{user.Title}}</span>
-     </div>
-    
- </div>
+  <div class="team">
+    <div class="img" :style="`background-image:url(${user.Img})`">
+      <div class="bottom">
+        <h3>{{ user.Name_ar }}</h3>
+        <span class="job-title">{{ user.Title }}</span>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-    props:['user'],
- 
+  props: ['user'],
 }
 </script>
-<style scoped src="../../assets/scss/partials/consultunt.css" />
+<style scoped src="../../assets/scss/partials/team.css" />
