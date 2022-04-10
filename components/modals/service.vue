@@ -62,10 +62,10 @@ import {required } from '@/utils/Helpers'
           return
         }
         RequestService(this.$store.getters['user/serviceId'] ,  this.breif).then(()  => {
-          // this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
-          // this.breif = null
-          // this.error = false
-          // this.modal = false
+          this.$store.commit('ui/snackBar' , 'تم استقبال طلبك بنجاح سنقوم بالتواصل معك عبر البريد الالكتروني المربوط بحسابك')
+          this.breif = null
+          this.error = false
+          this.modal = false
         })
       },
     },
