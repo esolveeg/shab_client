@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="n-wrap">
     <div class="nav" ref="nav">
       <div class="container--fluid">
         <div class="nav__wrapper">

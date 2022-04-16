@@ -65,8 +65,15 @@
       <v-tab-item  v-if="user.Role_id < 3">
          <v-form ref="form" v-model="valid">
             <v-row>
-              <v-col cols="12">
+              <v-col cols="8">
                 <partials-card :user="userCLone" :role="newRole" :test="true"></partials-card>
+              </v-col>
+               <v-col cols="4">
+                <div class="pricing">
+                    <h3>الحالية : {{this.user.Role}}</h3>
+                    <h4>فرق الترقية</h4>
+                    <h1>{{upgradeFee}} ريال</h1>
+                </div>
               </v-col>
               <v-col cols="12">
                 <v-combobox
@@ -79,7 +86,7 @@
                   outlined
                 ></v-combobox>
               </v-col>
-              <v-col cols="6" v-if="showBank">
+              <!-- <v-col cols="6" v-if="showBank">
                 <p>تحويل بنكي بقمة {{upgradeFee}} ر.س</p>
                 <ul>
                   <li>آيبان : SA9010000012472813000102</li>
@@ -91,7 +98,7 @@
                 <ul>
                   <li>غير مفعل ف الوقت الحالي</li>
                 </ul>
-              </v-col>
+              </v-col> -->
 
               <v-col cols="12" class="text-center">
                 <v-btn
@@ -116,7 +123,7 @@ export default {
   data(){
     let newRole  = this.$store.getters['user/user'].Role_id
     return {
-      tab : null,
+      tab : 2,
       showBank:false,
       upgradeFee: null,
       valid:false,
@@ -158,3 +165,20 @@ export default {
   },
 }
 </script>
+<style>
+.pricing{
+  font-weight: bold;
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.pricing h3{
+  font-size: 25px;
+}
+.pricing h1{
+  font-size: 50px;
+}
+</style>

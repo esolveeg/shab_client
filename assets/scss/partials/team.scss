@@ -1,0 +1,30 @@
+.team{
+    transition: transform .3s ease;
+    &:hover{
+        transform: scale(1.02);
+    }
+    & .img{
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 350px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
+   
+    & .bottom{
+        background-color: rgba(10, 31, 100 , .8);
+        color: #fff;
+        position: absolute;
+        bottom: 10px;
+        border-radius: 10px;
+        text-align: center;
+        width: calc(100% - 20px);
+        padding: 10px;
+        
+    }
+}

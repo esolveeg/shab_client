@@ -5,8 +5,12 @@
 @import './font.scss';
 @import './footer.scss';
 
-
-
+.n-wrap{
+    z-index: 7;
+}
+.index .nav:not(.fixed-nav){
+    background-color: var(--primary) !important;
+}
 .avatars .member-avatar {
     border:none !important;
     &:hover{

@@ -15,7 +15,7 @@
           <v-col cols="12" md="5">
             <img
               class="img"
-              src="http://134.209.230.113:8587/assets/about.jpg"
+              src="@/assets/images/about.jpg"
             />
           </v-col>
           <v-col cols="12" md="7">

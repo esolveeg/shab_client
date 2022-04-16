@@ -56,17 +56,38 @@ h2{
   font-family: "Tjwal";
 
 }
+.nav:not(.fixed-nav){
+  background-color: transparent;
+}
 .breadcrumbs{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-content: center;
     background-color: var(--primary);
+    background-image: url(../../assets/images/breadcrumb.jpg);
+    background-position: center;
+    background-size: cover;
     padding: 20px;
     flex-direction: column;
-    height: 50vh;
     color: #fff;
     text-align: center;
-
+    height: calc(30vh + 140px);
+    transform : translateY(-140px);
+    position: relative;
+}
+.breadcrumbs::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.title h2{
+    z-index: 2;
+    display: block;
+    position: relative;
 }
 .v-breadcrumbs{
     margin-top: 30px;
@@ -74,6 +95,7 @@ h2{
 }
 .breadcrumbs li,.breadcrumbs a {
     color :#fff !important;
+    z-index: 2;
     text-align: center;
 }
 </style>
