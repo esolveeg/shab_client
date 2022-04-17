@@ -27,7 +27,7 @@
 
      </div>
       <v-row align="center"  v-if="user.Role_id > 1" >
-        <v-col cols="12"><v-btn class="app-btn" @click.prevent="create"  >اضف مقال جديد </v-btn></v-col>
+        <v-col cols="12"><v-btn class="app-btn" @click.prevent="$router.push({name : 'blog-create'})"  >اضف مقال جديد </v-btn></v-col>
       </v-row>
       <modals-create-article @created="getArticles()"/>
 

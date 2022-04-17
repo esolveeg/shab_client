@@ -28,6 +28,7 @@ import {breadCrumb} from '@/utils/Helpers'
   export default {
     computed:{
       breadcrumb(){
+        if (typeof breadCrumb(this.$route.name) == 'undefined') return {title: 'اضافة مشروع',page: 'projects-create',}
         return breadCrumb(this.$route.name)
       },
 
@@ -39,7 +40,7 @@ import {breadCrumb} from '@/utils/Helpers'
           href: '/',
         },
         {
-          text: breadCrumb(this.$route.name).title,
+          text:  typeof breadCrumb(this.$route.name).title  != 'undefined' ?  breadCrumb(this.$route.name).title : '',
           disabled: false,
           href: this.$route.to,
         }

@@ -1,9 +1,13 @@
 .team {
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
 .team:hover {
-  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .team .img {
@@ -15,8 +19,12 @@
   background-size: cover;
   border-radius: 15px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .team .bottom {
@@ -29,3 +37,4 @@
   width: calc(100% - 20px);
   padding: 10px;
 }
+/*# sourceMappingURL=team.css.map */

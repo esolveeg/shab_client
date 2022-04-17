@@ -22,6 +22,14 @@ export const breadCrumb = page => {
       page: 'contact',
     },
     {
+      title: 'اضافة مشروع',
+      page: 'projects-create',
+    },
+    {
+      title: 'اضافة مقال',
+      page: 'blog-create',
+    },
+    {
       title: 'الفعاليات',
       page: 'events',
     },

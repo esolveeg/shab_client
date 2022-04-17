@@ -41,14 +41,6 @@ export default {
        required,
     }),
     computed:{
-        modal :{
-            get: function(){
-            return this.$store.getters['ui/projectModal']
-            },
-            set: function(val){
-            return this.$store.commit('ui/projectModal' , val)
-            },
-        },
         ...mapGetters({
             catLoading: 'cats/loading',
             cats: 'cats/articles',

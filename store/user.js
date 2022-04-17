@@ -3,24 +3,6 @@ export const state = () => ({
     users:[],
     ryadeen:[],
     consultunts:[],
-    dummyUserMobadr:{
-        Name: "sahar salem elhotamy",
-        Name_ar: "خالد بن محمد",
-        Serial: "2300100",
-        Role_id: 1,
-    },
-    dummyUserTamooh:{
-        Name: "sahar salem elhotamy",
-        Name_ar: "زياد بن احمد",
-        Serial: "2400100",
-        Role_id: 2,
-    },
-    dummyUserRyady:{
-        Name: "sahar salem elhotamy",
-        Name_ar: "عبدالله بن مساعد",
-        Serial: "2500100",
-        Role_id: 3,
-    },
     projects:[],
     articles:[],
     serviceId : null,
@@ -32,6 +14,9 @@ export const mutations = {
     user(state, payload) {
         state.loggedIn = payload != null
         state.user = payload;
+    },
+    team(state, payload) {
+        state.team = payload 
     },
     serviceId(state, payload) {
         state.serviceId = payload 
@@ -61,6 +46,7 @@ export const getters = {
     user: state => {
         return state.user
     },
+  
     serviceId: state => {
         return state.serviceId
     },
@@ -73,10 +59,7 @@ export const getters = {
     dummyUserRyady: state => {
         return state.dummyUserRyady
     },
-    
-
-
-    
+        
     projects: state => {
         return state.projects
     },
@@ -86,8 +69,17 @@ export const getters = {
     loading: state => {
         return state.loading
     },
+    team: state => {
+        const con = state.consultunts.filter(c => {
+            return c.IsTeam ? c : null
+        })
+        return con
+    },
     consultunts: state => {
-        return state.consultunts
+        const con = state.consultunts.filter(c => {
+            return !c.IsTeam ? c : null
+        })
+        return con
     },
     ryadeen: state => {
         return state.ryadeen
@@ -97,6 +89,5 @@ export const getters = {
     },
     loggedIn: state => {
         return state.loggedIn
-    },
-    
+    },   
 }

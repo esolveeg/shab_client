@@ -25,6 +25,12 @@
           </v-icon>
           {{ i.title }}
         </v-tab>
+        <v-tab v-if="user.Role_id < 3">
+          <v-icon right>
+           mdi-shield-crown-outline
+          </v-icon>
+          ترقية العضوية
+        </v-tab>
        
 
         <v-tab @click.prevent="logout">
@@ -118,6 +124,9 @@
         </v-tab-item>
         <v-tab-item>
           <profile-services />
+        </v-tab-item>
+        <v-tab-item>
+          <profile-upgrade />
         </v-tab-item>
        
       </v-tabs>

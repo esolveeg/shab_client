@@ -4,10 +4,18 @@
 }
 
 .nav__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
   position: sticky;
+  -webkit-transition: all .3s  ease-in;
   transition: all .3s  ease-in;
 }
 
@@ -26,7 +34,8 @@
   height: 25px;
   overflow: hidden;
   display: inline-block;
-  transform: translateX(20%);
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
 }
 
 .nav__wrapper .profile, .nav__wrapper .logout {
@@ -57,8 +66,12 @@
 }
 
 .nav__wrapper .desktop-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #fff;
   padding-left: 0 !important;
 }
@@ -137,7 +150,8 @@
   padding: 0;
   left: 0;
   z-index: 6;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .fixed-nav .cls-1 {
@@ -170,3 +184,4 @@
 .fixed-nav a {
   color: #333 !important;
 }
+/*# sourceMappingURL=nav.css.map */

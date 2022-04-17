@@ -72,7 +72,7 @@
         </v-row>
       </v-container>
       <v-container>
-        <v-row v-if="consultunts.length == 0">
+        <v-row v-if="members.length == 0">
           <v-col cols="12" md="3" v-for="i in 4" :key="i">
             <v-skeleton-loader
               class="mx-auto"
@@ -83,8 +83,8 @@
         </v-row>
         <v-row v-else>
           <v-col cols="12"><h2 class="app-title">فريق العمل</h2></v-col>
-          <v-col cols="12" md="3" v-for="co in consultunts" :key="co.Id">
-            <partials-team :user="co" />
+          <v-col cols="12" md="3" v-for="member in members" :key="member.Id">
+            <partials-team :user="member" />
           </v-col>
         </v-row>
       </v-container>
@@ -99,11 +99,11 @@ export default {
   computed: {
     ...mapGetters({
       home: 'ui/home',
-      consultunts: 'user/consultunts',
+      members: 'user/team',
     }),
   },
   created() {
-    if (this.consultunts.length === 0) {
+    if (this.members.length === 0) {
       Consultunts().then((d) => {
         this.$store.commit('user/consultunts', d)
       })

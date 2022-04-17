@@ -4,26 +4,3 @@
 @import './nav.scss';
 @import './font.scss';
 @import './footer.scss';
-
-.n-wrap{
-    z-index: 7;
-}
-.index .nav:not(.fixed-nav){
-    background-color: var(--primary) !important;
-}
-.avatars .member-avatar {
-    border:none !important;
-    &:hover{
-        border : 5px solid var(--primary) !important;
-    }
-}
-.hidden-file-input{
-    position: absolute !important;
-    top: 48px;
-    width: 150px;
-    opacity: .001;
-    transform: translate(20px , -20px);
-    & .v-input__slot{
-        height: 100px;
-    }
-}
