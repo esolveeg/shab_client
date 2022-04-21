@@ -45,7 +45,6 @@ export default {
   data() {
     let newRole = this.$store.getters['user/user'].Role_id
     return {
-      tab: 2,
       showBank: false,
       upgradeFee: null,
       valid: false,
@@ -60,7 +59,6 @@ export default {
         'ui/snackBar',
         'تم استلام الطلب بنجاح سنقوم بالتواصل معك'
       )
-      this.tab = 0
     },
   },
   watch: {

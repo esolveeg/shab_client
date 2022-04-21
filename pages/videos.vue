@@ -102,9 +102,9 @@ export default {
   },
   data() {
     return {
-      catsType: 'post',
+      catsType: 'video',
       page : 1,
-      pageCount : 4,
+      pageCount : 6,
     }
   },
   methods: {
