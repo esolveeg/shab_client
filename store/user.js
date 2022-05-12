@@ -3,6 +3,7 @@ export const state = () => ({
     users:[],
     ryadeen:[],
     consultunts:[],
+    team:[],
     projects:[],
     articles:[],
     serviceId : null,
@@ -23,6 +24,9 @@ export const mutations = {
     },
     consultunts(state,payload){
         state.consultunts = payload
+    },
+    team(state,payload){
+        state.team = payload
     },
      projects(state,payload){
         state.projects = payload
@@ -45,6 +49,9 @@ export const mutations = {
 export const getters = {
     user: state => {
         return state.user
+    },
+    team: state => {
+        return state.team
     },
   
     serviceId: state => {
@@ -69,17 +76,9 @@ export const getters = {
     loading: state => {
         return state.loading
     },
-    team: state => {
-        const con = state.consultunts.filter(c => {
-            return c.IsTeam ? c : null
-        })
-        return con
-    },
+   
     consultunts: state => {
-        const con = state.consultunts.filter(c => {
-            return !c.IsTeam ? c : null
-        })
-        return con
+        return  state.consultunts
     },
     ryadeen: state => {
         return state.ryadeen

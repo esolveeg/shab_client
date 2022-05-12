@@ -133,6 +133,17 @@ export const addParamsToLocation = (params , path) => {
   }
 
 
+
+  export const clearNullValues = (obj) => {
+    let clone = { ...obj }
+    Object.keys(clone).forEach((key) => {
+      let k = key
+      clone[k] === null || '' ? delete clone[k] : ''
+    })
+    return clone
+  }
+
+
   export const logout = (store) => {
     if(process.client){
       localStorage.removeItem('token')

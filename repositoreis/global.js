@@ -1,4 +1,5 @@
 import Http from '@/utils/Http'
+import { clearNullValues, serializeQuery } from '~/utils/Helpers'
 
 
 export const Home = () => {
@@ -63,7 +64,8 @@ export const Post = (id) => {
 
 export const Projects = (payload) => {
     return new Promise((resolve, reject) => {
-        Http.post('projects' , payload)
+        // const p = {Category : payload.category , Search:payload.search}
+        Http.get(`projects?${serializeQuery(clearNullValues(payload))}`)
         .then((d) => {
             d.data == null ? resolve([]) : resolve(d.data)
         }).catch(e => {

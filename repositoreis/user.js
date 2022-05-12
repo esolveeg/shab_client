@@ -77,6 +77,21 @@ export const Consultunts = () => {
 }
 
 
+
+
+
+export const Team = () => {
+    return new Promise((resolve, reject) => {
+        Http.get('consultunts?type=team')
+        .then((d) => {
+            resolve(d.data)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
+
 export const Users = () => {
     return new Promise((resolve, reject) => {
         Http.get('users')

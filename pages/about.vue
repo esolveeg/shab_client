@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import {Consultunts} from '@/repositoreis/user'
+import {Team} from '@/repositoreis/user'
 import { mapGetters } from 'vuex'
 export default {
   computed: {
@@ -104,8 +104,8 @@ export default {
   },
   created() {
     if (this.members.length === 0) {
-      Consultunts().then((d) => {
-        this.$store.commit('user/consultunts', d)
+      Team().then((d) => {
+        this.$store.commit('user/team', d)
       })
     }
   },
