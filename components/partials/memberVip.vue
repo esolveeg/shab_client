@@ -1,8 +1,10 @@
 <template>
  <div class="vip" :style="`background-image:url(${user.Img})`">
-     <h2>{{user.Name_ar}}</h2>
-
-     <p>{{user.Breif}}</p>
+     <div class="content">
+        <h2>{{user.Name_ar}}</h2>
+        <p>{{user.Breif}}</p>    
+     </div>
+     
  </div>
 </template>
 <script>

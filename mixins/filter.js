@@ -50,7 +50,7 @@ export default {
     },
     getCats(){
         ListCatsByType(this.catsType).then((res) => {
-          this.$store.commit('cats/articles', res)
+          this.$store.commit('cats/articles',  this.all.concat(res))
           this.$store.commit('cats/loading', false)
         })
     },

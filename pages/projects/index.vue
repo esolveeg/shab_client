@@ -150,6 +150,7 @@ export default {
     return {
       catsType: 'project',
       filtersLoading: false,
+      all :[{Id : 0 , Name : "الكل"}],
       city:null,
       cities: [],
     }
@@ -164,7 +165,7 @@ export default {
     getCities() {
       this.filtersLoading = true
       ListCities().then((res) => {
-        this.cities = res
+        this.cities = this.all.concat(res)
         this.filtersLoading = false
       })
     },
