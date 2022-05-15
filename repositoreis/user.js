@@ -25,6 +25,18 @@ export const RequestService = (id , Breif) => {
     })
 }
 
+
+export const Messages = () => {
+    return new Promise((resolve, reject) => {
+        Http.get(`me/messages`)
+        .then((d) => {
+            resolve(d.data)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
 export const User = () => {
     return new Promise((resolve, reject) => {
         Http.get('me')
@@ -68,6 +80,31 @@ export const SendResetEmail = (email ) => {
 export const Consultunts = () => {
     return new Promise((resolve, reject) => {
         Http.get('consultunts')
+        .then((d) => {
+            resolve(d.data)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
+
+
+
+export const FindUpgradeRequests = () => {
+    return new Promise((resolve, reject) => {
+        Http.get(`me/upgrade`)
+        .then((d) => {
+            resolve(d.data)
+        }).catch(e => {
+            reject(e)
+        })
+    })
+}
+
+export const Upgrade = (id) => {
+    return new Promise((resolve, reject) => {
+        Http.post(`users/upgrade/${id}`)
         .then((d) => {
             resolve(d.data)
         }).catch(e => {

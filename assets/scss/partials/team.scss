@@ -17,7 +17,7 @@
     }
    
     & .bottom{
-        background-color: rgba(10, 31, 100 , .8);
+        background-color: var(--alpha-bg);
         color: #fff;
         position: absolute;
         bottom: 10px;

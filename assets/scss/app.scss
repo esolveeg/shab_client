@@ -4,3 +4,13 @@
 @import './nav.scss';
 @import './font.scss';
 @import './footer.scss';
+.filter-btn{
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--alpha-bg) !important;
+    color: #fff !important;
+    text-align: center;
+    padding: 20px 0;
+    height: 55px !important;
+
+}

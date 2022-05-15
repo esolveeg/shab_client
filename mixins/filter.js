@@ -12,9 +12,11 @@ export default {
     return {
       dialog: false,
       categoryFilter: 'ادارة',
+      cat:null,
       form: {
         search: '',
         category: 0,
+        city: 0,
       },
     }
   },
@@ -32,6 +34,10 @@ export default {
       this.dialog = true
     },
     selectCat(cat){
+      if (cat == null) {
+        this.clearCat()
+        return
+      }
       this.form.category = cat.Id
       this.categoryFilter = cat.Name
     },
@@ -40,6 +46,7 @@ export default {
     },
     clearCat(){
       this.form.category = 0
+      this.cat = null
     },
     getCats(){
         ListCatsByType(this.catsType).then((res) => {
@@ -47,7 +54,9 @@ export default {
           this.$store.commit('cats/loading', false)
         })
     },
-    
+    clearSearch(){
+      this.form.search = null
+    }
   },
   created() {
     this.$store.commit('cats/loading', true)

@@ -1,6 +1,8 @@
 <template>
+<div>
   <v-form ref="form" v-model="valid">
     <v-row>
+      <p class="user_msg" v-if="disabled">لقد تم استقبال طلبك بنجاح و سنقوم بارسال لك رسالة بعد تاكيد طلبك</p>
       <v-col cols="8">
         <partials-card
           :user="userCLone"
@@ -19,6 +21,7 @@
         <v-combobox
           label="العضوية"
           ref="role"
+          :readonly="disabled"
           :items="roles"
           item-text="Name"
           item-value="Id"
@@ -29,6 +32,7 @@
       <v-col cols="12" class="text-center">
         <v-btn
           :loading="loading"
+          :disabled="disabled"
           @click.prevent="upgradeRequest()"
           class="app-btn"
           >ترقية</v-btn
@@ -36,11 +40,13 @@
       </v-col>
     </v-row>
   </v-form>
+</div>
 </template>
 
 
 <script>
 import { mapGetters } from 'vuex'
+import {Upgrade , FindUpgradeRequests} from '@/repositoreis/user.js'
 export default {
   data() {
     let newRole = this.$store.getters['user/user'].Role_id
@@ -50,16 +56,36 @@ export default {
       valid: false,
       newRole,
       role: null,
+      currentRequest: null,
+      disabled : false,
       loading: false,
     }
   },
   methods: {
     upgradeRequest() {
-      this.$store.commit(
-        'ui/snackBar',
-        'تم استلام الطلب بنجاح سنقوم بالتواصل معك'
-      )
+      Upgrade(this.newRole).then(res => {
+        this.$store.commit(
+          'ui/snackBar',
+          'تم استلام الطلب بنجاح سنقوم بالتواصل معك'
+        )
+        this.$emit('changeTab' , 0)
+      })
     },
+    getCurrenRequest(){
+      FindUpgradeRequests().then(res => {
+        console.log(res)
+        console.log(res.PriceToPay)
+        this.newRole = res.NewRoleId 
+        this.disabled = true
+        this.currentRequest = res
+        this.role = {
+          Id : res.NewRoleId ,
+          Name : res.NewRole ,
+          Price : res.PriceToPay
+        }
+
+      })
+    }
   },
   watch: {
     role(val) {
@@ -85,6 +111,9 @@ export default {
       },
     },
   },
+  created(){
+    this.getCurrenRequest()
+  }
 }
 </script>
 

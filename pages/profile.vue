@@ -126,7 +126,7 @@
           <profile-services />
         </v-tab-item>
         <v-tab-item>
-          <profile-upgrade />
+          <profile-upgrade @changeTab="changeTab"/>
         </v-tab-item>
        
       </v-tabs>
@@ -261,6 +261,9 @@ export default {
     },
   },
   methods: {
+    changeTab(tab){
+      this.tab = tab
+    },
     upgradeRequest(){
       this.$store.commit(
             'ui/snackBar',

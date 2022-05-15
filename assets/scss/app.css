@@ -71,6 +71,7 @@
 :root {
   --primary: #0A1F64;
   --bg-darker:#ebf0f3;
+  --alpha-bg: rgba(10, 31, 100 , .8);
   --shadow:0 10px 20px rgba(0, 0, 0, 0.16);
   --p-fs:18px;
   --danger:#ff4444;
@@ -112,6 +113,17 @@
   .app-subtitle {
     font-size: 25px;
   }
+}
+
+.user_msg {
+  padding: 20px 30px;
+  background-color: var(--alpha-bg);
+  color: #fff;
+  border-radius: 15px;
+  width: 100%;
+  margin: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .app-btn {
@@ -679,5 +691,15 @@ footer p, footer h2, footer .v-icon {
 
 footer-logo {
   display: none;
+}
+
+.filter-btn {
+  width: 100%;
+  border-radius: 15px;
+  background-color: var(--alpha-bg) !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 20px 0;
+  height: 55px !important;
 }
 /*# sourceMappingURL=app.css.map */

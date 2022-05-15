@@ -5,7 +5,7 @@
             <!-- <v-col cols="12" class="img">
                     <img :src="project.Img" alt="">
             </v-col> -->
-            <v-col cols="12" md="8">
+            <v-col cols="12">
                 <div class="top">
                     <div class="title">
                         <img :src="project.Logo" alt="">
@@ -69,7 +69,7 @@
                 </div>
                 <!-- {{project}} -->
             </v-col>
-            <v-col cols="12" md="4">
+            <!-- <v-col cols="12" md="4">
               <div class="meta">
                   <h2>معلومات الاتصال</h2>
                   <div class="email" v-if="project.Website">
@@ -100,7 +100,7 @@
                 <partials-share/>
               </div>
 
-            </v-col>
+            </v-col> -->
             <!-- <v-col cols="12" class="map">
                 <v-card>
                 </v-card>
