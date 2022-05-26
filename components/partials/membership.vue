@@ -1,7 +1,7 @@
 <template>
     <div class="membership">
         <div class="img">
-            <img :src="role.Image">
+            <img :src="role.Img">
         </div>
         <h3>{{role.Name}}</h3>
         <p>{{role.Breif}}</p>

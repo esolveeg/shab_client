@@ -28,7 +28,7 @@ export const Blog = (payload) => {
 
 export const Events = (payload) => {
     return new Promise((resolve, reject) => {
-        Http.post('events' , payload)
+        Http.get('events' , payload)
         .then((d) => {
             d.data == null ? resolve([]) : resolve(d.data)
         }).catch(e => {
