@@ -7,6 +7,11 @@ export const price = (p) => {
   return `${p} ر.س`
 }
 
+
+export const image = (path) => {
+  return process.env.IMG_URL + path
+}
+
 export const breadCrumb = page => {
   const pages = [
     {
@@ -77,6 +82,10 @@ export const breadCrumb = page => {
     {
       title: 'المشروعات',
       page: 'projects-id',
+    },
+    {
+      title: 'تعديل المشروع',
+      page: 'projects-edit-id',
     },
     {
       title: 'الفيديوهات',

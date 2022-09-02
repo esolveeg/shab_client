@@ -482,8 +482,10 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+
 import Nav from '@/utils/Nav'
 import AccountNav from '@/utils/AccountNav'
+import {image} from '@/utils/Helpers'
 export default {
   data() {
     return {
@@ -519,6 +521,7 @@ export default {
     }),
   },
   methods: {
+    image,
     toggle() {
       this.menu = !this.menu
     },

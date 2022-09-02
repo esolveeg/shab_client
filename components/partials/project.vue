@@ -2,10 +2,10 @@
     <div class="project-p" >
         <div class="top" @click.prevent="open">
             <div class="img">
-                <img :src="project.Img" :alt="project.title">
+                <img :src="image(project.Img)" :alt="project.title">
             </div>
             <div class="logo">
-                <img :src="project.Logo" :alt="project.title">
+                <img :src="image(project.Logo)" :alt="project.title">
             </div>
         </div>
         <div class="bottom">
@@ -24,12 +24,18 @@
 
 
 <script>
+import { image} from '@/utils/Helpers'
 export default {
     props:['project'],
     methods:{
+        image,
         edit(){
+            console.log(this.project.Id)
+            console.log("this.project.Id")
             this.$store.commit('projects/editId' ,this.project.Id)
-            this.$store.commit('ui/projectModal' ,true)
+            // this.$store.commit('ui/projectModal' ,true)
+              this.$router.push({name : 'projects-edit-id' , params:{id:this.project.Id}})
+
         },
         open(){
             this.$router.push({name : 'projects-id' , params:{id : this.project.Id}})
@@ -38,3 +44,4 @@ export default {
 }
 </script>
 <style scoped src="../../assets/scss/partials/project.css" />
+

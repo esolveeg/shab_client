@@ -8,7 +8,7 @@
             <v-col cols="12">
                 <div class="top">
                     <div class="title">
-                        <img :src="project.Logo" alt="">
+                        <img :src="image(project.Logo)" alt="">
                         <div class="d-flex justify-space-between">
                             <h2>{{project.Title}}</h2>
                             <h3><v-icon>mdi-flag</v-icon>متعثر</h3>
@@ -59,7 +59,7 @@
                                 <v-card flat>
                                     <v-card-text >
                                         <div class="gallery">
-                                            <v-img v-for="img in project.Imgs.split(',')" :key="img" :src="`${img}`" @click.prevent="openImg(img)"/>
+                                            <v-img v-for="img in project.Imgs.split(',')" :key="img" :src="`${image(img)}`" @click.prevent="openImg(image(img))"/>
                                         </div>
                                     </v-card-text>
                                 </v-card>
@@ -112,7 +112,7 @@
       width="700"
       class="dialog"
     >
-        <v-img :src="activeImg"/>
+        <v-img :src="image(img)(activeImg)"/>
         <span class="dialog-close" @click.prevent="closeImg"><v-icon >mdi-close</v-icon></span>
     </v-dialog>
 </div>
@@ -120,7 +120,7 @@
 
 <script>
 
-import {price} from '@/utils/Helpers'
+import {price , image} from '@/utils/Helpers'
 import {Project} from '@/repositoreis/global'
 
 export default {
@@ -135,6 +135,7 @@ export default {
     },
     methods:{
         price,
+        image,
         downloadFile(){
            window.open(this.project.File)
         },

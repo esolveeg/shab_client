@@ -15,7 +15,7 @@
         </div>
         <div class="left">
           <div class="img">
-            <img :src="event.Img" alt="الشاب الريادي" />
+            <img :src="image(event.Img)" alt="الشاب الريادي" />
           </div>
 
           <div class="video">
@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import { price } from '@/utils/Helpers'
+import {price , image} from '@/utils/Helpers'
 import { mapGetters } from 'vuex'
 import { snackBar } from '@/utils/Helpers'
 import { required } from '@/utils/Helpers'
@@ -182,6 +182,7 @@ export default {
     },
   },
   methods: {
+    image,
     openModal(){
       if(this.finished){
                 this.$store.commit('ui/snackBar' , 'عفوا هذه الفعالية انتهت بالفعل ترقب اخر فعاليات الشب الريادي')

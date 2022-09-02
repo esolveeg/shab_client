@@ -1,7 +1,7 @@
 <template>
     <div class="membership">
         <div class="img">
-            <img :src="role.Img">
+            <img :src="image(role.Img)">
         </div>
         <h3>{{role.Name}}</h3>
         <p>{{role.Breif}}</p>
@@ -12,9 +12,10 @@
 
 
 <script>
-import {price} from '@/utils/Helpers'
+import {price , image} from '@/utils/Helpers'
 export default {
     methods:{
+        image,
         price
     },
     

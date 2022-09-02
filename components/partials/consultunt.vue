@@ -1,6 +1,6 @@
 <template>
  <div class="consultunt" >
-     <div class="img"  :style="`background-image:url(${user.Img})`">
+     <div class="img"  :style="`background-image:url(${image(user.Image)})`">
          
      </div>
      <div class="bottom">
@@ -25,8 +25,12 @@
  </div>
 </template>
 <script>
+import {image} from '@/utils/Helpers'
 export default {
     props:['user'],
+    methods:{
+        image
+    }
  
 }
 </script>

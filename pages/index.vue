@@ -10,7 +10,7 @@
           </v-col>
           <v-col class="text-left" cols="12" sm="6">
             <img
-              :src="home.Banner.Image"
+              :src="image(home.Banner.Image)"
             />
           </v-col>
         </v-row>
@@ -126,7 +126,7 @@
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 import {mapGetters} from 'vuex'
-import {undef} from '@/utils/Helpers'
+import {undef , image} from '@/utils/Helpers'
 export default {
   computed:{
   ...mapGetters({
@@ -134,7 +134,8 @@ export default {
   })
 },
 methods:{
-  undef
+  undef,
+  image
 },
   components: {
     Logo,

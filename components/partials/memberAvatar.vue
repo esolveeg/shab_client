@@ -1,13 +1,17 @@
 <template>
     <div class="member-avatar">
-        <img :src="img" alt="">
+        <img :src="image(img)" alt="">
     </div>
 </template>
 
 
 <script>
+import {image} from '@/utils/Helpers'
 export default {
-    props:['img']
+    props:['img'],
+    methods:{
+        image
+    }
 }
 </script>
 

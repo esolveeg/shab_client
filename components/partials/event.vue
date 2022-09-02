@@ -1,7 +1,7 @@
 <template>
    <div class="event"  @click.prevent="goToEvent(event.Id)">
        <div class="top">
-           <img :src="event.Img"/>
+           <img :src="image(event.Img)"/>
            <p class="cat">
                {{event.CatName}}
            </p>
@@ -26,7 +26,7 @@
 
 
 <script>
-import {price} from '@/utils/Helpers'
+import {price , image} from '@/utils/Helpers'
 export default {
     data(){
         return {
@@ -48,6 +48,7 @@ export default {
     },
     methods:{
         price,
+        image,
         goToEvent(id){
             if(this.finished){
                 this.$store.commit('ui/snackBar' , 'عفوا هذه الفعالية انتهت بالفعل ترقب اخر فعاليات الشب الريادي')

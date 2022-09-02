@@ -26,7 +26,7 @@
         </v-row>
      </div>
      <v-row align="center">
-        <v-col cols="12"><v-btn class="app-btn" :disabled="user.Role_id < 3" @click.prevent="$router.push({name : 'projects-create'})"  >اضف مشروع جديد </v-btn></v-col>
+        <v-col cols="12"><v-btn class="app-btn" :disabled="user.Role_id < 3" @click.prevent="create"  >اضف مشروع جديد </v-btn></v-col>
       </v-row>
     </div>
 </template>
@@ -55,7 +55,7 @@ export default {
         this.$store.commit('ui/snackBar' , 'عفوا لا يمكنك اضافة اكثر من 3 مشاريع')
         return
       } 
-      this.$store.commit('ui/projectModal' ,true)
+      this.$router.push({name : 'projects-create'})
 
 
     },

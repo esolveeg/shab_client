@@ -3,7 +3,7 @@
 
         <div class="top">
             <div class="img">
-                <img :src="post.Img" alt="">
+                <img :src="image(post.Img)" alt="">
                 <p class="cat">{{post.CategoryName}}</p>
             </div>
            
@@ -33,8 +33,12 @@
 
 
 <script>
+import { image} from '@/utils/Helpers'
 export default {
-    props:['post']
+    props:['post'],
+    methods:{
+        image
+    }
 }
 </script>
 <style  src="../../assets/scss/partials/post.css" />

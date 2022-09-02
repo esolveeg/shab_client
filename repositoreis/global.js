@@ -17,7 +17,7 @@ export const Home = () => {
 
 export const Blog = (payload) => {
     return new Promise((resolve, reject) => {
-        Http.post('articles' , payload)
+        Http.get(`articles?${serializeQuery(payload)}`)
         .then((d) => {
             d.data == null ? resolve([]) : resolve(d.data)
         }).catch(e => {

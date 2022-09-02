@@ -3,7 +3,7 @@
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <v-img :src="post.Img" class="img" alt="" />
+                    <v-img :src="image(post.Img)" class="img" alt="" />
                     <div class="top">
                         <div class="title">
                             <h2>{{post.Title}}</h2>
@@ -36,7 +36,7 @@
 
 <script>
 
-import {price} from '@/utils/Helpers'
+import {price , image} from '@/utils/Helpers'
 import {Post} from '@/repositoreis/global'
 
 export default {
@@ -48,6 +48,7 @@ export default {
         }
     },
     methods:{
+        image,
         price,
         downloadFile(){
            window.open(this.post.File)
