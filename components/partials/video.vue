@@ -4,8 +4,7 @@
                 <iframe width="100%" height="350" :src="`https://www.youtube.com/embed/${video.Url}`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </no-ssr>
             <div class="desc">
-                <h3>محتوي الحلقة</h3>
-                <p>{{video.Breif}}</p>
+                <h3 class="text-center mt-3">{{video.Name}}</h3>
             </div>
         </div>
 </template>

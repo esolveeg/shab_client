@@ -19,7 +19,7 @@
             />
           </v-col>
           <v-col cols="12" md="7">
-            <h2 class="app-title mb-8">من نحن</h2>
+            <h2 class="app-title text-right mb-8">من نحن</h2>
             <p>
               منصة مجتمع الشاب الريادي إحدى برامج ريادة الأعمال في شركة “بزنس
               برو Business Pro l” للاستشارات

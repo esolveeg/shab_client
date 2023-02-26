@@ -2,7 +2,7 @@
   <div class="home">
     <div class="banner">
       <v-container>
-       
+
         <v-row justify="start" align="center" v-if="home != null">
           <v-col cols="12" sm="6" class="text-right">
             <h3>{{home.Banner.Title}}</h3>
@@ -78,7 +78,7 @@
       <v-container>
         <div class="members__wrapper">
           <div class="right">
-              <h2 class="app-title">انصم الي الشبكة  التنفيذية  الان</h2>
+              <h2 class="app-title">انضم الي الشبكة  التنفيذية  الان</h2>
               <v-btn class="app-btn" @click.prevent="$router.push({name : 'resigter' , query : {role : 3}})">انضم الينا الان</v-btn>
           </div>
           <div class="left">
@@ -105,7 +105,7 @@
                </v-col>
            </v-row>
         <v-row justify="start" v-else align="center">
-          
+
           <v-col cols="12">
           <div class="anim-icon">
               <span></span>

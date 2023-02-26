@@ -26,7 +26,7 @@
           <h5>{{ user.Name }}</h5>
         </div>
         <div class="card-serial">
-          <h4 class="date">12/2022</h4>
+          <h4 class="date">12/{{year}}</h4>
           <h4 class="serial">{{ user.Serial }}</h4>
         </div>
       </div>
@@ -37,6 +37,11 @@
 <script>
 export default {
   props: ['user' , 'role' , 'test'],
+  computed: {
+    year() {
+      return new Date().getFullYear()
+    },
+  },
 }
 </script>
 

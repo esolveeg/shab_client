@@ -6,7 +6,7 @@
             <h2>
                 {{item.Title}}
             </h2>
-            <p>{{item.Value}}</p>
+            <p v-html="item.Value"/>
     </div>
 </template>
 

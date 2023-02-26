@@ -1,8 +1,8 @@
 <template>
   <div class="team">
-    <div class="img" :style="`background-image:url(${image(user.Img)})`">
+    <div class="img" :style="`background-image:url(${image(user.Image)})`">
       <div class="bottom">
-        <h3>{{ user.Name_ar }}</h3>
+        <h3>{{ user.NameAr }}</h3>
         <span class="job-title">{{ user.Title }}</span>
       </div>
     </div>

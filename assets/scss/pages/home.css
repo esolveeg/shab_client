@@ -10,22 +10,18 @@
   font-size: 36px;
   overflow: hidden;
 }
-
 .banner img {
   height: 500px;
   width: auto;
 }
-
 .banner p {
   color: var(--font-color);
   font-weight: bold;
 }
-
 .banner p strong {
   color: #fff;
   font-size: 36px;
 }
-
 @media (max-width: 1000px) {
   .banner {
     font-size: 24px;
@@ -34,7 +30,6 @@
     height: 300px;
   }
 }
-
 @media (max-width: 500px) {
   .banner {
     font-size: 22px;
@@ -46,66 +41,39 @@
 }
 
 .members__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 @media (max-width: 960px) {
   .members__wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    justify-content: center;
   }
 }
-
 .members__wrapper .right {
   text-align: center;
 }
-
 @media (max-width: 960px) {
   .members__wrapper .right {
     margin-bottom: 30px;
   }
 }
-
 .members__wrapper .left .view-all {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .members__wrapper .left .avatars {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .members__wrapper .left .avatars > div {
   margin: 0 -20px;
 }
-
 .members__wrapper .left .avatars .v-icon {
   color: var(--primary);
   margin-right: 20px;
   font-size: 30px;
   display: inline;
   font-weight: bold;
-}
-/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */

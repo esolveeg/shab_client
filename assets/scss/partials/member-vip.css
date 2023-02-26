@@ -5,30 +5,18 @@
   background-color: var(--alpha-bg);
   border-radius: 15px;
   position: relative;
-  -webkit-box-shadow: var(--box-shadow);
-          box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
   text-align: center;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   cursor: pointer;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
   z-index: 5;
   overflow: hidden;
 }
-
 .vip::before {
   content: "";
   width: 100%;
@@ -37,20 +25,14 @@
   bottom: 0;
   left: 0;
   position: absolute;
-  -webkit-transition: background-color .3s ease;
-  transition: background-color .3s ease;
+  transition: background-color 0.3s ease;
 }
-
 .vip::before {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(10, 31, 100, 0.01)), color-stop(25%, rgba(10, 31, 100, 0.07)), color-stop(76%, rgba(10, 31, 100, 0.1)));
   background: linear-gradient(180deg, rgba(10, 31, 100, 0.01) 0%, rgba(10, 31, 100, 0.07) 25%, rgba(10, 31, 100, 0.1) 76%);
 }
-
 .vip:hover {
-  -webkit-transform: scale(1.04);
-          transform: scale(1.04);
+  transform: scale(1.04);
 }
-
 .vip:hover .content {
   background-color: var(--alpha-bg);
   z-index: 2;
@@ -62,23 +44,17 @@
   width: calc(100% - 20px);
   padding: 10px;
 }
-
 .vip:hover .content p {
   height: auto;
 }
-
 .vip p {
   height: 0;
   overflow: hidden;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
-
 .vip h2, .vip p {
   z-index: 3;
   padding: 0 20px;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
   position: relative;
-}
-/*# sourceMappingURL=member-vip.css.map */
+}/*# sourceMappingURL=member-vip.css.map */

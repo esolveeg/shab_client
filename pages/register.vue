@@ -208,7 +208,7 @@ export default {
       form: {
         Name: null,
         Name_ar: null,
-        Serial: "2000100",
+        Serial: "2200100",
         Role_id: null,
         Phone: null,
         Password: null,
@@ -226,6 +226,7 @@ export default {
   },
   methods: {
     register() {
+
       this.loading = true
       RegisterUser(this.form)
         .then((d) => {
@@ -238,9 +239,13 @@ export default {
           this.$router.push('/')
         })
         .catch((e) => {
-          this.stepper = 1
-          field = e.body == "Error 1062: Duplicate entry '05466176681' for key 'users.phone'"? 'الهاتف' : 'البريد'
+
+          console.log(e.response.data.errors.body)
+          console.log(Object.keys(e.response))
+          console.log(Object.keys(e.toJSON()))
           this.loading = false
+          this.stepper = 1
+          let field = e.response.data.errors.body.includes('phone')  ? 'الهاتف' : 'البريد'
           this.error = `هذا ${field} مستخدم من قبل`
         })
     },
@@ -266,8 +271,8 @@ export default {
     }
     const roleId = parseInt(this.$route.query.role)
     this.form.Role_id = roleId
-    let serial = "2000100"
-    if (roleId == 2) serial = "2200100"
+    let serial = "2200100"
+    if (roleId == 2) serial = "2300100"
     if (roleId == 1) serial = "2400100"
     this.form.Serial = serial
     Object.keys(this.form).forEach((key) => {

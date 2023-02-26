@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,SAAS,CAAC,QAAC;EACX,WAAW,CAAA,OAAC;EACZ,UAAU,CAAC,uBAAC;EACZ,QAAQ,CAAA,+BAAC;EACT,MAAM,CAAA,IAAC;EACP,QAAQ,CAAA,OAAC;EACT,SAAS,CAAA,OAAC;EACV,QAAQ,CAAA,OAAC;EACT,QAAQ,CAAA,OAAC;EACT,UAAU,CAAA,IAAC;EACX,YAAY,CAAA,kBAAC;EACb,OAAO,CAAA,OAAC;CACX",
-    "sources": [
-        "variables.scss"
-    ],
-    "names": [],
-    "file": "variables.css"
-}
+{"version":3,"sources":["variables.scss","variables.css"],"names":[],"mappings":"AAAA;EACI,kBAAA;EACA,mBAAA;EACA,kCAAA;EACA,wCAAA;EACA,WAAA;EACA,gBAAA;EACA,iBAAA;EACA,gBAAA;EACA,gBAAA;EACA,eAAA;EACA,+BAAA;EACA,eAAA;ACCJ","file":"variables.css"}

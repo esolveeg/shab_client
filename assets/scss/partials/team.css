@@ -1,15 +1,9 @@
 .team {
-  -webkit-transition: -webkit-transform .3s ease;
-  transition: -webkit-transform .3s ease;
-  transition: transform .3s ease;
-  transition: transform .3s ease, -webkit-transform .3s ease;
+  transition: transform 0.3s ease;
 }
-
 .team:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
-
 .team .img {
   position: relative;
   margin-bottom: 20px;
@@ -19,14 +13,9 @@
   background-size: cover;
   border-radius: 15px;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .team .bottom {
   background-color: var(--alpha-bg);
   color: #fff;
@@ -36,5 +25,4 @@
   text-align: center;
   width: calc(100% - 20px);
   padding: 10px;
-}
-/*# sourceMappingURL=team.css.map */
+}/*# sourceMappingURL=team.css.map */
