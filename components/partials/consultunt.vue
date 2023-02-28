@@ -4,7 +4,7 @@
          
      </div>
      <div class="bottom">
-         <h2>{{user.Name_ar}}</h2>
+         <h2>{{user.NameAr}}</h2>
          <span class="job-title">{{user.Title}}</span>
          <p>{{user.Breif}}</p>
      </div>
